@@ -7,7 +7,7 @@ DROP TABLE shops;
 
 CREATE TABLE shops (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255),
+  shop_name VARCHAR(255),
   turnover INT
 );
 
@@ -18,8 +18,8 @@ CREATE TABLE customers (
   address_1 VARCHAR(255),
   address_2 VARCHAR(255),
   postcode VARCHAR(255),
-  town_city VARCHAR(255),
-  create_account BOOLEAN
+  town_city VARCHAR(255)
+  -- create_account BOOLEAN
 );
 
 CREATE TABLE suppliers (
