@@ -1,8 +1,9 @@
 require('../db/sql_runner')
 
-class Shop
+class Invoice
 
-  attr_accessor :id, :name, :turnover
+  attr_reader :id
+  attr_accessor :status
 
   def initialize(details)
     @id = options['id'].to_i if options['id']

@@ -2,7 +2,8 @@ require('../db/sql_runner')
 
 class Shop
 
-  attr_accessor :id, :name, :turnover
+  attr_reader :id
+  attr_accessor :name, :turnover
 
   def initialize(details)
     @id = options['id'].to_i if options['id']

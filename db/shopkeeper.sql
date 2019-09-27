@@ -35,7 +35,7 @@ CREATE TABLE suppliers (
 CREATE TABLE products (
   id SERIAL8 PRIMARY KEY,
   supplier_id INT8 REFERENCES suppliers(id),
-  name VARCHAR(255),
+  product_name VARCHAR(255),
   description TEXT,
   stock INT,
   cost_price INT,
