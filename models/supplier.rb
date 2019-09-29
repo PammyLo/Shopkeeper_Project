@@ -16,11 +16,18 @@ class Supplier
   end
 
   def save
-      sql = "INSERT INTO suppliers ( supplier_name, contact_name, location )
+    sql = "INSERT INTO suppliers ( supplier_name, contact_name, location )
       VALUES ( $1, $2, $3 )
       RETURNING id"
-      values = [ @supplier_name, @contact_name, @location ]
-      results = SqlRunner.run( sql, values )
-      @id = results.first()['id'].to_i
-    end
+    values = [ @supplier_name, @contact_name, @location ]
+    results = SqlRunner.run( sql, values )
+    @id = results.first()['id'].to_i
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM suppliers"
+    SqlRunner.run( sql )
+  end
+
+
 end
