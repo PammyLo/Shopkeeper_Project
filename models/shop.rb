@@ -24,4 +24,14 @@ class Shop
     SqlRunner.run( sql )
   end
 
+  def update
+    sql = "UPDATE shops
+    SET shop_name = $1, turnover = $2
+    WHERE id = $3"
+    new_total = @turnover += 
+    SqlRunner.run( sql, values )
+
+
+  end
+
 end

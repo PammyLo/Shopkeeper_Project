@@ -47,6 +47,14 @@ class Product
     return Product.new( results.first )
   end
 
+  def total
+    sql = "SELECT  FROM products
+    WHERE id = $1"
+    values = [ @id ]
+    results = SqlRunner.run( sql, values )
+    return Product.new( results.first )
+  end
+
   def update
     sql = "UPDATE products
     SET supplier_id = $1, product_name = $2, description = $3, stock = $4, cost_price = $5, selling_price = $6, low_stock_threshold = $7, delivery_time = $8, category = $9

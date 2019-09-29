@@ -1,13 +1,15 @@
 require('../db/sql_runner')
+require( 'pry' )
 
 class Invoice
 
-  attr_accessor :id, :status
+  attr_reader :id, :status
+  attr_accessor :shop_id, :invoice_total
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @shop_id = details['shop_id'].to_i
-    @status = details['status'].to_i
+    @status = "0".to_i
     @invoice_total = details['invoice_total'].to_i
   end
 
@@ -31,7 +33,7 @@ class Invoice
     return results.map { |invoice| Invoice.new( invoice ) }
   end
 
-  def self.find( id )
+  def find
     sql = "SELECT * FROM invoices
     WHERE id = $1"
     values = [ @id ]
@@ -39,5 +41,31 @@ class Invoice
     return Invoice.new( results.first )
   end
 
+  def update(status)
+    sql = "UPDATE invoices
+    SET shop_id = $1, status = $2, invoice_total = $3
+    WHERE id = $4"
+    values = [ @shop_id, status, @invoice_total, @id ]
+    SqlRunner.run( sql, values)
+  end
 
-end
+  def pay
+      sql = "UPDATE invoices
+      SET shop_id = $1, status = $2, invoice_total = $3
+      WHERE id = $4"
+      new_status = "1"
+      values = [ @shop_id, new_status, @invoice_total, @id ]
+      SqlRunner.run( sql, values )
+    end
+  end
+
+  # def pay
+  #   if self.status == "0"
+  #     sql = "UPDATE invoices
+  #     SET shop_id = $1, status = $2, invoice_total = $3
+  #     WHERE id = $4"
+  #     new_status = "1"
+  #     values = [ new_status, @id ]
+  #     SqlRunner.run( sql, values )
+  #   end
+  # end

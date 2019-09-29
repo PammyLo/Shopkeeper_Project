@@ -166,7 +166,6 @@ customer3.save
 
 invoice1 = Invoice.new({
   "shop_id" => shop1.id,
-  "status" => "1",
   "invoice_total" => 0
 })
 
@@ -174,7 +173,6 @@ invoice1.save
 
 invoice2 = Invoice.new({
   "shop_id" => shop1.id,
-  "status" => "1",
   "invoice_total" => 0
 })
 
@@ -182,15 +180,13 @@ invoice2.save
 
 invoice3 = Invoice.new({
   "shop_id" => shop1.id,
-  "status" => "1",
-  "invoice_total" => 0
+  "invoice_total" => 60
 })
 
 invoice3.save
 
 invoice4 = Invoice.new({
   "shop_id" => shop1.id,
-  "status" => "0",
   "invoice_total" => 0
 })
 
@@ -264,5 +260,10 @@ customer2.update
 Order.all
 
 Product.all
+
+invoice3.find
+# invoice3.invoice_total = 20
+# invoice3.update("0")
+invoice3.pay
 
 # binding.pry
