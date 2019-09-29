@@ -24,12 +24,9 @@ CREATE TABLE customers (
 
 CREATE TABLE suppliers (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255),
+  supplier_name VARCHAR(255),
   contact_name VARCHAR(255),
-  address_1 VARCHAR(255),
-  address_2 VARCHAR(255),
-  postcode VARCHAR(255),
-  town_city VARCHAR(255)
+  location VARCHAR(255)
 );
 
 CREATE TABLE products (
