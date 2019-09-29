@@ -196,9 +196,8 @@ order1 = Order.new({
   "product_id" => product1.id,
   "customer_id" => customer1.id,
   "invoice_id" => invoice1.id,
-  "quantity" =>  1,
-  "date_ordered" => "2019-09-28 16:00:00",
-  "status" => "1"
+  "quantity" =>  0,
+  "date_ordered" => "2019-09-28 16:00:00"
   })
 
 order1.save
@@ -208,8 +207,7 @@ order2 = Order.new({
   "customer_id" => customer2.id,
   "invoice_id" => invoice2.id,
   "quantity" =>  1,
-  "date_ordered" => "2019-08-22 08:00:00",
-  "status" => "1"
+  "date_ordered" => "2019-08-22 08:00:00"
   })
 
 order2.save
@@ -219,8 +217,7 @@ order3 = Order.new({
   "customer_id" => customer3.id,
   "invoice_id" => invoice3.id,
   "quantity" =>  1,
-  "date_ordered" => "2019-08-26 13:30:00",
-  "status" => "1"
+  "date_ordered" => "2019-08-26 13:30:00"
   })
 
 order3.save
@@ -230,8 +227,7 @@ order4 = Order.new({
   "customer_id" => customer3.id,
   "invoice_id" => invoice4.id,
   "quantity" =>  1,
-  "date_ordered" => "2019-09-28 13:10:00",
-  "status" => "0"
+  "date_ordered" => "2019-09-28 13:10:00"
   })
 
 order4.save
@@ -241,8 +237,7 @@ order5 = Order.new({
   "customer_id" => customer1.id,
   "invoice_id" => invoice3.id,
   "quantity" =>  1,
-  "date_ordered" => "2019-09-28 13:00:00",
-  "status" => "1"
+  "date_ordered" => "2019-09-28 13:00:00"
   })
 
 order5.save
@@ -261,9 +256,17 @@ Order.all
 
 Product.all
 
-invoice3.find
-# invoice3.invoice_total = 20
-# invoice3.update("0")
-invoice3.pay
+# invoice3.find
+# invoice3.update
+# invoice3.pay
 
+invoice1.invoice_total = 30
+Invoice.update(invoice1)
+# order1.check_out
+
+# order1.find
+# order1.find_selling_price
+# order1.value
+# order1.update_status
+# order1.find_invoice_total
 # binding.pry

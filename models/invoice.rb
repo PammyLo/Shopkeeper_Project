@@ -33,6 +33,14 @@ class Invoice
     return results.map { |invoice| Invoice.new( invoice ) }
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM invoices
+    WHERE id = $1"
+    values = [ id ]
+    results = SqlRunner.run( sql, values )
+    return Invoice.new( results.first )
+  end
+
   def find
     sql = "SELECT * FROM invoices
     WHERE id = $1"
@@ -41,13 +49,31 @@ class Invoice
     return Invoice.new( results.first )
   end
 
-  def update(status)
+  def update
     sql = "UPDATE invoices
     SET shop_id = $1, status = $2, invoice_total = $3
     WHERE id = $4"
-    values = [ @shop_id, status, @invoice_total, @id ]
+    values = [ @shop_id, @status, @invoice_total, @id ]
     SqlRunner.run( sql, values)
   end
+
+  def Invoice.update(invoice)
+    sql = "UPDATE invoices
+    SET shop_id = $1, status = $2, invoice_total = $3
+    WHERE id = $4"
+    values = [ invoice.shop_id, invoice.status, invoice.invoice_total, invoice.id ]
+    SqlRunner.run( sql, values)
+  end
+
+
+
+  # def update(status)
+  #   sql = "UPDATE invoices
+  #   SET shop_id = $1, status = $2, invoice_total = $3
+  #   WHERE id = $4"
+  #   values = [ @shop_id, status, @invoice_total, @id ]
+  #   SqlRunner.run( sql, values)
+  # end
 
   def pay
       sql = "UPDATE invoices
