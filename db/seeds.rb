@@ -54,7 +54,8 @@ product1 = Product.new({
   "selling_price" => 195,
   "cost_price" => 156,
   "low_stock_threshold" => 1,
-  "delivery_time" => 14
+  "delivery_time" => 14,
+  "category" => "Jewellery"
   })
 
 product1.save
@@ -67,7 +68,8 @@ product2 = Product.new({
   "selling_price" => 395,
   "cost_price" => 316,
   "low_stock_threshold" => 1,
-  "delivery_time" => 14
+  "delivery_time" => 14,
+  "category" => "Jewellery"
   })
 
 product2.save
@@ -80,7 +82,8 @@ product3 = Product.new({
   "selling_price" => 13,
   "cost_price" => 10,
   "low_stock_threshold" => 5,
-  "delivery_time" => 5
+  "delivery_time" => 5,
+  "category" => "Candles"
   })
 
 product3.save
@@ -93,33 +96,36 @@ product4 = Product.new({
   "selling_price" => 13,
   "cost_price" => 10,
   "low_stock_threshold" => 5,
-  "delivery_time" => 5
+  "delivery_time" => 5,
+  "category" => "Candles"
   })
 
 product4.save
 
 product5 = Product.new({
   "supplier_id" => supplier1.id,
-  "product_name" => "Classic Design Scarf, 2-ply 5-colour",
+  "product_name" => "Classic Design Scarf",
   "description" => "2-ply 5-colour scarf classic design motifs vary allover. Thick and chunky, it's ideal for someone wanting a bolder look. Approximate size cms: 157 x 25.",
   "stock" =>  5,
   "selling_price" => 210,
   "cost_price" => 168,
   "low_stock_threshold" => 1,
-  "delivery_time" => 10
+  "delivery_time" => 10,
+  "category" => "Knitwear"
   })
 
 product5.save
 
 product6 = Product.new({
   "supplier_id" => supplier1.id,
-  "product_name" => "Reversible Wristwarmers, 5-Colour",
-  "description" => "Classic on the outside, contemporary on the inside and vice versa. (except for the seams of course). Approximate size (unstretched) cms: 18.5 x 19.",
+  "product_name" => "Reversible Wristwarmers, classic design",
+  "description" => "Classic on the outside, contemporary on the inside and vice versa (except for the seams of course). 5 colours. Approximate size (unstretched) cms: 18.5 x 19.",
   "stock" =>  3,
   "selling_price" => 160,
   "cost_price" => 128,
   "low_stock_threshold" => 1,
-  "delivery_time" => 10
+  "delivery_time" => 10,
+  "category" => "Knitwear"
   })
 
 product6.save
@@ -253,6 +259,6 @@ customer2.update
 
 Order.all
 
-Product.product_name.all
+Product.all
 
-binding.pry
+# binding.pry
