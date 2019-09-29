@@ -8,11 +8,11 @@ require("pry")
 
 
 Order.delete_all
+Product.delete_all
+Invoice.delete_all
+Customer.delete_all
 Supplier.delete_all
 Shop.delete_all
-Product.delete_all
-Customer.delete_all
-Invoice.delete_all
 
 
 shop1 = Shop.new({
