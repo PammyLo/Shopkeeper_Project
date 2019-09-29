@@ -6,13 +6,13 @@ class Supplier
   attr_accessor :name
 
   def initialize(details)
-    @id = options['id'].to_i if options['id']
+    @id = details['id'].to_i if details['id']
     @name = details['name']
     @contact_name = details['contact_name']
-    @address_1 = details['address_1']
-    @address_2 = details['address_2']
-    @postcode = details['postcode']
-    @town_city = details['town_city']
+    @location = details['location']
+    # @address_2 = details['address_2']
+    # @postcode = details['postcode']
+    # @town_city = details['town_city']
   end
 
 

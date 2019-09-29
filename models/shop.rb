@@ -6,7 +6,7 @@ class Shop
   attr_accessor :name, :turnover
 
   def initialize(details)
-    @id = options['id'].to_i if options['id']
+    @id = details['id'].to_i if details['id']
     @shop_name = details['shop_name']
     @turnover = details['turnover'].to_i
   end

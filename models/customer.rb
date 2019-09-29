@@ -5,7 +5,7 @@ class Customer
   attr_reader :id
 
   def initialize(details)
-    @id = options['id'].to_i if options['id']
+    @id = details['id'].to_i if details['id']
     @first_name = details['first_name']
     @last_name = details['last_name']
     @address_1 = details['address_1']

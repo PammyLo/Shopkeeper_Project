@@ -6,9 +6,9 @@ class Product
   attr_accessor
 
   def initialize(details)
-    @id = options['id'].to_i if options['id']
+    @id = details['id'].to_i if details['id']
     @supplier_id = details['supplier_id'].to_i
-    @product_name = details['product_name']
+    @product_name = details['product_name'].capitalize
     @description = details['description']
     @stock = details['stock'].to_i
     @cost_price = details['cost_price'].to_i

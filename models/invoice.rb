@@ -6,7 +6,7 @@ class Invoice
   attr_accessor :status
 
   def initialize(details)
-    @id = options['id'].to_i if options['id']
+    @id = details['id'].to_i if details['id']
     @shop_id = details['shop_id'].to_i
     @status = details['status'].to_i
   end
