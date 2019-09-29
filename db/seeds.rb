@@ -8,6 +8,9 @@ require("pry")
 
 
 Product.delete_all
+Supplier.delete_all
+
+
 
 supplier1 = Supplier.new({
   "name" => "Bakka",
