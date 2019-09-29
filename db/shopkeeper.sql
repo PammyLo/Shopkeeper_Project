@@ -51,8 +51,8 @@ CREATE TABLE orders (
   id SERIAL8 PRIMARY KEY,
   product_id INT8 REFERENCES products(id),
   quantity INT,
-  status BOOLEAN,
   customer_id INT8 REFERENCES customers(id),
   invoice_id INT8 REFERENCES invoices(id),
-  date_ordered DATE
+  date_ordered DATE,
+  status BOOLEAN
 );

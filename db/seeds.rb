@@ -7,10 +7,20 @@ require_relative('../models/shop')
 require("pry")
 
 
-Product.delete_all
+Order.delete_all
 Supplier.delete_all
+Shop.delete_all
+Product.delete_all
+Customer.delete_all
+Invoice.delete_all
 
 
+shop1 = Shop.new({
+  "shop_name" => "Spirit of Scotland",
+  "turnover" => 83450
+  })
+
+shop1.save
 
 supplier1 = Supplier.new({
   "name" => "Bakka",
@@ -113,3 +123,120 @@ product6 = Product.new({
   })
 
 product6.save
+
+customer1 = Customer.new({
+  "first_name" => "Jo",
+  "last_name" => "Blog",
+  "address_1" => "17 Hogwarts lane",
+  "address_2" => "",
+  "postcode" => "AB2 3CD",
+  "town_city" => "Aberdeen"
+  })
+
+customer1.save
+
+customer2 = Customer.new({
+  "first_name" => "Marissa",
+  "last_name" => "Jones",
+  "address_1" => "28 Chapel Street",
+  "address_2" => "",
+  "postcode" => "IV2 4DB",
+  "town_city" => "Inverness"
+  })
+
+customer2.save
+
+customer3 = Customer.new({
+  "first_name" => "Jim",
+  "last_name" => "Harper",
+  "address_1" => "62 Fleetstreet",
+  "address_2" => "",
+  "postcode" => "E1 6AN",
+  "town_city" => "London"
+  })
+
+customer3.save
+
+
+invoice1 = Invoice.new({
+  "shop_id" => shop1.id,
+  "status" => "0"
+})
+
+invoice1.save
+
+invoice2 = Invoice.new({
+  "shop_id" => shop1.id,
+  "status" => "0"
+})
+
+invoice2.save
+
+invoice3 = Invoice.new({
+  "shop_id" => shop1.id,
+  "status" => "1"
+})
+
+invoice3.save
+
+invoice4 = Invoice.new({
+  "shop_id" => shop1.id,
+  "status" => "0"
+})
+
+invoice4.save
+
+order1 = Order.new({
+  "product_id" => product1.id,
+  "customer_id" => customer1.id,
+  "invoice_id" => invoice1.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-28 16:00:00",
+  "status" => "0"
+  })
+
+order1.save
+
+order2 = Order.new({
+  "product_id" => product2.id,
+  "customer_id" => customer2.id,
+  "invoice_id" => invoice2.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-08-22 08:00:00",
+  "status" => "0"
+  })
+
+order2.save
+
+order3 = Order.new({
+  "product_id" => product3.id,
+  "customer_id" => customer3.id,
+  "invoice_id" => invoice3.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-08-26 13:30:00",
+  "status" => "0"
+  })
+
+order3.save
+
+order4 = Order.new({
+  "product_id" => product2.id,
+  "customer_id" => customer3.id,
+  "invoice_id" => invoice4.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-28 13:10:00",
+  "status" => "0"
+  })
+
+order4.save
+
+order5 = Order.new({
+  "product_id" => product2.id,
+  "customer_id" => customer1.id,
+  "invoice_id" => invoice3.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-28 13:00:00",
+  "status" => "0"
+  })
+
+order5.save

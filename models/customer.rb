@@ -14,5 +14,18 @@ class Customer
     @town_city = details['town_city']
   end
 
+  def save
+    sql = "INSERT INTO customers ( first_name, last_name, address_1, address_2, postcode, town_city )
+      VALUES ( $1, $2, $3, $4, $5, $6 )
+      RETURNING id"
+    values = [ @first_name, @last_name, @address_1, @address_2, @postcode, @town_city ]
+    results = SqlRunner.run( sql, values )
+    @id = results.first()['id'].to_i
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM customers"
+    SqlRunner.run( sql )
+  end
 
 end
