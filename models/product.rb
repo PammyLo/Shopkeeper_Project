@@ -32,4 +32,22 @@ class Product
     SqlRunner.run( sql )
   end
 
+  def self.all
+    sql = "SELECT * FROM products"
+    results = SqlRunner.run( sql )
+    return results.map { |hash| Product.new( hash ) }
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM products
+    WHERE id = $1"
+    values = [ @id ]
+    results = SqlRunner.run( sql, values )
+    return Product.new( results.first )
+  end
+
+  
+
+
+
 end

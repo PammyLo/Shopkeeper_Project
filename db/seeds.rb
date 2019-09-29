@@ -25,7 +25,7 @@ shop1.save
 supplier1 = Supplier.new({
   "supplier_name" => "Bakka",
   "contact_name" => "Mary Macgregor",
-  "location" => "Shetland"
+  "location" => "Orkney"
 })
 
 supplier1.save
@@ -240,3 +240,19 @@ order5 = Order.new({
   })
 
 order5.save
+
+Supplier.all
+supplier2.find
+supplier1.location = "Shetland"
+supplier1.update
+
+Customer.all
+customer2.find
+customer2.last_name = "Smith"
+customer2.update
+
+Order.all
+
+Product.product_name.all
+
+binding.pry

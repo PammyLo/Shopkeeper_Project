@@ -31,4 +31,18 @@ class Order
     SqlRunner.run( sql )
   end
 
+  def self.all
+    sql = "SELECT * FROM orders"
+    results = SqlRunner.run( sql )
+    return results.map { |order| Order.new( order ) }
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM orders
+    WHERE id = $1"
+    values = [ id ]
+    results = SqlRunner.run( sql, values )
+    return Order.new( results.first )
+  end
+
 end

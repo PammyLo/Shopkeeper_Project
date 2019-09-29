@@ -24,4 +24,19 @@ class Invoice
     SqlRunner.run( sql )
   end
 
+  def self.all
+    sql = "SELECT * FROM invoices"
+    results = SqlRunner.run( sql )
+    return results.map { |hash| Invoice.new( hash ) }
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM invoices
+    WHERE id = $1"
+    values = [ @id ]
+    results = SqlRunner.run( sql, values )
+    return Invoice.new( results.first )
+  end
+
+
 end
