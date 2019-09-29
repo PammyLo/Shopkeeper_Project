@@ -7,13 +7,15 @@ require_relative('../models/shop')
 require("pry")
 
 
+Product.delete_all
+
 supplier1 = Supplier.new({
   "name" => "Bakka",
   "contact_name" => "Mary Macgregor",
   "location" => "Shetland"
 })
 
-supplier1.save()
+supplier1.save
 
 supplier2 = Supplier.new({
   "name" => "Essence of Harris",
