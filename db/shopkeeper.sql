@@ -45,6 +45,7 @@ CREATE TABLE products (
 CREATE TABLE invoices (
   id SERIAL8 PRIMARY KEY,
   shop_id INT8 REFERENCES shops(id),
+  invoice_total INT,
   status BOOLEAN
 );
 

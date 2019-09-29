@@ -17,7 +17,7 @@ Shop.delete_all
 
 shop1 = Shop.new({
   "shop_name" => "Spirit of Scotland",
-  "turnover" => 83450
+  "turnover" => 0
   })
 
 shop1.save
@@ -166,28 +166,32 @@ customer3.save
 
 invoice1 = Invoice.new({
   "shop_id" => shop1.id,
-  "status" => "0"
+  "status" => "1",
+  "invoice_total" => 0
 })
 
 invoice1.save
 
 invoice2 = Invoice.new({
   "shop_id" => shop1.id,
-  "status" => "0"
+  "status" => "1",
+  "invoice_total" => 0
 })
 
 invoice2.save
 
 invoice3 = Invoice.new({
   "shop_id" => shop1.id,
-  "status" => "1"
+  "status" => "1",
+  "invoice_total" => 0
 })
 
 invoice3.save
 
 invoice4 = Invoice.new({
   "shop_id" => shop1.id,
-  "status" => "0"
+  "status" => "0",
+  "invoice_total" => 0
 })
 
 invoice4.save
@@ -198,7 +202,7 @@ order1 = Order.new({
   "invoice_id" => invoice1.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 16:00:00",
-  "status" => "0"
+  "status" => "1"
   })
 
 order1.save
@@ -209,7 +213,7 @@ order2 = Order.new({
   "invoice_id" => invoice2.id,
   "quantity" =>  1,
   "date_ordered" => "2019-08-22 08:00:00",
-  "status" => "0"
+  "status" => "1"
   })
 
 order2.save
@@ -220,7 +224,7 @@ order3 = Order.new({
   "invoice_id" => invoice3.id,
   "quantity" =>  1,
   "date_ordered" => "2019-08-26 13:30:00",
-  "status" => "0"
+  "status" => "1"
   })
 
 order3.save
@@ -242,7 +246,7 @@ order5 = Order.new({
   "invoice_id" => invoice3.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 13:00:00",
-  "status" => "0"
+  "status" => "1"
   })
 
 order5.save
