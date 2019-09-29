@@ -23,7 +23,7 @@ shop1 = Shop.new({
 shop1.save
 
 supplier1 = Supplier.new({
-  "name" => "Bakka",
+  "supplier_name" => "Bakka",
   "contact_name" => "Mary Macgregor",
   "location" => "Shetland"
 })
@@ -31,7 +31,7 @@ supplier1 = Supplier.new({
 supplier1.save
 
 supplier2 = Supplier.new({
-  "name" => "Essence of Harris",
+  "supplier_name" => "Essence of Harris",
   "contact_name" => "Jamie McGowan",
   "location" => "Isle of Harris"
 })
@@ -39,7 +39,7 @@ supplier2 = Supplier.new({
 supplier2.save
 
 supplier3 = Supplier.new({
-  "name" => "HP Jewellery",
+  "supplier_name" => "HP Jewellery",
   "contact_name" => "Hazel Passmore",
   "location" => "Inverness"
 })
