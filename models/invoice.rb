@@ -1,10 +1,10 @@
-require('../db/sql_runner')
+require('./db/sql_runner')
 require( 'pry' )
 
 class Invoice
 
-  attr_reader :id, :status
-  attr_accessor :shop_id, :invoice_total
+  attr_reader :id
+  attr_accessor :shop_id, :invoice_total; :status
 
   def initialize(details)
     @id = details['id'].to_i if details['id']

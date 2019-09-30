@@ -1,4 +1,4 @@
-require('../db/sql_runner')
+require('./db/sql_runner')
 
 class Product
 

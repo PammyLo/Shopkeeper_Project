@@ -307,6 +307,12 @@ customer4.check_out(order4, shop1)
 customer5.check_out(order5, shop1)
 customer6.check_out(order6, shop1)
 customer1.pay(shop1)
+customer2.pay(shop1)
+customer3.pay(shop1)
+customer4.pay(shop1)
+p customer2.orders
+
+
 # binding.pry
 # order3.check_out(shop1)
 # order4.check_out(shop1)

@@ -1,4 +1,4 @@
-require('../db/sql_runner')
+require('./db/sql_runner')
 require('pry')
 
 class Order
@@ -13,7 +13,7 @@ class Order
     @quantity = details['quantity'].to_i
     @status = 0
     @customer_id = details['customer_id'].to_i
-    @invoice_id = nil
+    @invoice_id = details['invoice_id'] if details['invoice_id'] || nil
     @date_ordered = details['date_ordered']
   end
 

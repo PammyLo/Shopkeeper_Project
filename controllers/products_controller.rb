@@ -1,0 +1,6 @@
+require( 'sinatra' )
+require( 'sinatra/reloader' )
+require( 'pry' )
+require_relative( '../models/product.rb' )
+require_relative( '../models/supplier.rb' )
+also_reload( '../models/*' )
