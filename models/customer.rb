@@ -71,22 +71,22 @@ class Customer
   end
 
   def invoice?
-   return self.invoices.count > 0
+   return true if self.invoices.count > 0
   end
 
-  def check_out(order, shop)
-    order.update_status
-    amount = order.value
-    if self.invoice?
-      invoice = self.invoices
-      new_amount = invoice.invoice_total += amount
-      invoice.update(new_amount)
-    else
-      invoice = Invoice.new({"shop_id" => shop.id})
-      invoice.invoice_total = amount
-      invoice.save
-    end
-  end
+  # def check_out(order, shop)
+  #   order.update_status
+  #   amount = order.value
+  #   if self.invoice?
+  #     invoice = self.invoices
+  #     new_amount = invoice.invoice_total += amount
+  #     invoice.update(new_amount)
+  #   else
+  #     invoice = Invoice.new({"shop_id" => shop.id})
+  #     invoice.invoice_total = amount
+  #     invoice.save
+  #   end
+  # end
 
 
 end

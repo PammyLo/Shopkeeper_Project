@@ -67,6 +67,15 @@ class Order
     return order_value.to_i
   end
 
+  def find_customer
+    sql = "SELECT customers.id FROM customers, orders
+    WHERE customers.id = orders.customer_id
+    AND orders.id = $1"
+    values = [ @id ]
+    customer = SqlRunner.run( sql, values )
+    return Customer.new( customer.first )
+  end
+
   def update_status
     sql = "UPDATE orders
     SET product_id = $1, quantity = $2, status = $3, customer_id = $4, invoice_id = $5, date_ordered= $6
@@ -74,6 +83,32 @@ class Order
     new_status = "1"
     values = [ @product_id, @quantity, new_status, @customer_id, @invoice_id, @date_ordered, @id ]
     SqlRunner.run( sql, values )
+  end
+
+  def update_invoice_id
+    sql = "UPDATE orders
+    SET product_id = $1, quantity = $2, status = $3, customer_id = $4, invoice_id = $5, date_ordered= $6
+    WHERE id = $7"
+    new_invoice =
+    values = [ @product_id, @quantity, @status, @customer_id, new_invoice, @date_ordered, @id ]
+    SqlRunner.run( sql, values )
+  end
+
+  def check_out(shop)
+    self.update_status
+    amount = self.value
+    customer = self.find_customer
+    if customer.invoice?
+      invoice = customer.invoices
+      new_amount = invoice.invoice_total += amount
+      invoice.update(new_amount)
+    else
+      invoice = Invoice.new({"shop_id" => shop.id})
+      invoice.invoice_total = amount
+      invoice.save
+      @invoice_id = invoice.id
+      self.save
+    end
   end
 
   # def find_invoice_total #find current total of invoice to add order to

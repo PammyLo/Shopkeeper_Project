@@ -295,10 +295,16 @@ customer2.find
 customer2.last_name = "Smith"
 customer2.update
 
-
+Supplier.all
 Order.all
 Product.all
 Customer.all
+
+order1.find_customer
+order1.check_out(shop1)
+binding.pry
+
+
 
 # invoice3.find
 # invoice3.update
