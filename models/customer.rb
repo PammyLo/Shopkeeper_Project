@@ -1,4 +1,5 @@
 require('../db/sql_runner')
+require 'pry'
 
 class Customer
 
@@ -50,5 +51,42 @@ class Customer
     values = [ @first_name, @last_name, @address_1, @address_2, @postcode, @town_city, @id ]
     SqlRunner.run( sql, values )
   end
+
+  def orders
+    sql = "SELECT orders.* FROM orders, customers
+    WHERE orders.customer_id = customers.id
+    AND customers.id = $1"
+    values = [ @id ]
+    orders = SqlRunner.run( sql, values )
+    return orders.map { |order| Order.new( orders.first )}
+  end
+
+  def invoices
+    sql = "SELECT invoices.* FROM invoices, orders, customers
+    WHERE orders.customer_id = customers.id
+    AND orders.id = $1"
+    values = [ @id ]
+    invoices = SqlRunner.run( sql, values )
+    return invoices.map { |order| Invoice.new( invoices.first )}
+  end
+
+  def invoice?
+   return self.invoices.count > 0
+  end
+
+  def check_out(order, shop)
+    order.update_status
+    amount = order.value
+    if self.invoice?
+      invoice = self.invoices
+      new_amount = invoice.invoice_total + amount
+      invoice.update(new_amount)
+    else
+      invoice = Invoice.new({"shop_id" => shop.id})
+      invoice.invoice_total = amount
+      invoice.save
+    end
+  end
+
 
 end

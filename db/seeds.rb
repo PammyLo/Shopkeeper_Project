@@ -165,29 +165,29 @@ customer3.save
 
 
 invoice1 = Invoice.new({
-  "shop_id" => shop1.id,
-  "invoice_total" => 0
+  "shop_id" => shop1.id
+  # "invoice_total" => 0
 })
 
 invoice1.save
 
 invoice2 = Invoice.new({
-  "shop_id" => shop1.id,
-  "invoice_total" => 0
+  "shop_id" => shop1.id
+  # "invoice_total" => 0
 })
 
 invoice2.save
 
 invoice3 = Invoice.new({
-  "shop_id" => shop1.id,
-  "invoice_total" => 60
+  "shop_id" => shop1.id
+  # "invoice_total" => 60
 })
 
 invoice3.save
 
 invoice4 = Invoice.new({
-  "shop_id" => shop1.id,
-  "invoice_total" => 0
+  "shop_id" => shop1.id
+  # "invoice_total" => 0
 })
 
 invoice4.save
@@ -195,8 +195,8 @@ invoice4.save
 order1 = Order.new({
   "product_id" => product1.id,
   "customer_id" => customer1.id,
-  "invoice_id" => invoice1.id,
-  "quantity" =>  0,
+  # "invoice_id" => invoice1.id,
+  "quantity" =>  1,
   "date_ordered" => "2019-09-28 16:00:00"
   })
 
@@ -205,7 +205,7 @@ order1.save
 order2 = Order.new({
   "product_id" => product2.id,
   "customer_id" => customer2.id,
-  "invoice_id" => invoice2.id,
+  # "invoice_id" => invoice2.id,
   "quantity" =>  1,
   "date_ordered" => "2019-08-22 08:00:00"
   })
@@ -215,7 +215,7 @@ order2.save
 order3 = Order.new({
   "product_id" => product3.id,
   "customer_id" => customer3.id,
-  "invoice_id" => invoice3.id,
+  # "invoice_id" => invoice3.id,
   "quantity" =>  1,
   "date_ordered" => "2019-08-26 13:30:00"
   })
@@ -225,7 +225,7 @@ order3.save
 order4 = Order.new({
   "product_id" => product2.id,
   "customer_id" => customer3.id,
-  "invoice_id" => invoice4.id,
+  # "invoice_id" => invoice4.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 13:10:00"
   })
@@ -235,7 +235,7 @@ order4.save
 order5 = Order.new({
   "product_id" => product2.id,
   "customer_id" => customer1.id,
-  "invoice_id" => invoice3.id,
+  # "invoice_id" => invoice3.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 13:00:00"
   })
@@ -252,6 +252,7 @@ customer2.find
 customer2.last_name = "Smith"
 customer2.update
 
+
 Order.all
 
 Product.all
@@ -262,6 +263,16 @@ Product.all
 
 invoice1.invoice_total = 30
 Invoice.update(invoice1)
+invoice1.update(250)
+customer3.orders
+
+customer3.invoices
+customer3.invoice?
+
+customer1.check_out(order1, shop1)
+customer2.check_out(order2, shop1)
+
+# binding.pry
 # order1.check_out
 
 # order1.find
@@ -269,4 +280,3 @@ Invoice.update(invoice1)
 # order1.value
 # order1.update_status
 # order1.find_invoice_total
-# binding.pry

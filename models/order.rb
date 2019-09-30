@@ -11,9 +11,9 @@ class Order
     @id = details['id'].to_i if details['id']
     @product_id = details['product_id'].to_i
     @quantity = details['quantity'].to_i
-    @status = "0".to_i
+    @status = 0
     @customer_id = details['customer_id'].to_i
-    @invoice_id = details['invoice_id'].to_i
+    @invoice_id = nil
     @date_ordered = details['date_ordered']
   end
 
@@ -85,14 +85,6 @@ class Order
     return found_total['invoice_total'].to_i
   end
 
-  # def check_out
-  #   self.update_status
-  #   new_total = self.find_invoice_total + self.value
-  #   sql = "UPDATE invoices
-  #   SET shop_id = $1, status = $2, invoice_total = $3
-  #   WHERE id = $4"
-  #   values = [ @invoice_id.shop_id, @invoice_id.status, @invoice_id.invoice_total, @invoice_id ]
-  #   SqlRunner.run( sql, values)
-  # end
+
 
 end
