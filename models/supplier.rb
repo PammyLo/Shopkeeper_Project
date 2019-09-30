@@ -41,7 +41,7 @@ class Supplier
     return results.map { |product| Product.new(product) }
   end
 
-  def find
+  def self.find(id)
     sql = "SELECT * FROM suppliers
     WHERE id = $1"
     values = [ id ]

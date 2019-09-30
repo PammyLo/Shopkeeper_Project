@@ -19,6 +19,11 @@ class Shop
     @id = results.first()['id'].to_i
   end
 
+  def self.turnover
+    sql = "SELECT turnover FROM shops"
+    SqlRunner.run( sql )
+  end
+
   def self.delete_all
     sql = "DELETE FROM shops"
     SqlRunner.run( sql )

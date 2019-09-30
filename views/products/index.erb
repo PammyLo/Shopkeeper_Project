@@ -1,0 +1,44 @@
+<h1>PRODUCTS</h1>
+
+<a href="/products/new">add product</a>
+
+<p><table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Category</th>
+    <th></th>
+    <th>Stock</th>
+    <th></th>
+    <th>Selling Price</th>
+    <th></th>
+    <th>Cost Price</th>
+    <th></th>
+    <th>Markup</th>
+    <th></th>
+    <th>Action</th>
+  </tr>
+
+  <% for product in @products %>
+
+  <tr>
+    <td><a href="/products/<%= product.id %>"><%= product.product_name %></a></td>
+    <td>|</td>
+    <td><%= product.category %></td>
+    <td>|</td>
+    <td><%= product.stock %></td>
+    <td>|</td>
+    <td><%= product.selling_price %></td>
+    <td>|</td>
+    <td><%= product.cost_price %></td>
+
+    <% end %>
+
+    <td>|</td>
+    <td>Action</td>
+  </tr>
+
+
+
+</table>
+</p>
