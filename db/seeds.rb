@@ -16,8 +16,7 @@ Shop.delete_all
 
 
 shop1 = Shop.new({
-  "shop_name" => "Spirit of Scotland",
-  "turnover" => 0
+  "shop_name" => "Spirit of Scotland"
   })
 
 shop1.save
@@ -163,41 +162,44 @@ customer3 = Customer.new({
 
 customer3.save
 
+customer4 = Customer.new({
+  "first_name" => "Dylan",
+  "last_name" => "Maple",
+  "address_1" => "23 Gorge Road",
+  "address_2" => "",
+  "postcode" => "CD12UU",
+  "town_city" => "Manchester"
+  })
 
-invoice1 = Invoice.new({
-  "shop_id" => shop1.id
-  # "invoice_total" => 0
-})
+customer4.save
 
-invoice1.save
+customer5 = Customer.new({
+  "first_name" => "Alayna",
+  "last_name" => "Robins",
+  "address_1" => "45 Market Square",
+  "address_2" => "",
+  "postcode" => "ER3 4KK",
+  "town_city" => "Harrogate"
+  })
 
-invoice2 = Invoice.new({
-  "shop_id" => shop1.id
-  # "invoice_total" => 0
-})
+customer5.save
 
-invoice2.save
+customer6 = Customer.new({
+  "first_name" => "Oscar",
+  "last_name" => "Manley",
+  "address_1" => "36 High Street",
+  "address_2" => "",
+  "postcode" => "JK1 7KM",
+  "town_city" => "Smalltown"
+  })
 
-invoice3 = Invoice.new({
-  "shop_id" => shop1.id
-  # "invoice_total" => 60
-})
-
-invoice3.save
-
-invoice4 = Invoice.new({
-  "shop_id" => shop1.id
-  # "invoice_total" => 0
-})
-
-invoice4.save
+customer6.save
 
 order1 = Order.new({
   "product_id" => product1.id,
   "customer_id" => customer1.id,
-  # "invoice_id" => invoice1.id,
   "quantity" =>  1,
-  "date_ordered" => "2019-09-28 16:00:00"
+  "date_ordered" => "2019-09-13 16:00:00"
   })
 
 order1.save
@@ -205,9 +207,8 @@ order1.save
 order2 = Order.new({
   "product_id" => product2.id,
   "customer_id" => customer2.id,
-  # "invoice_id" => invoice2.id,
   "quantity" =>  1,
-  "date_ordered" => "2019-08-22 08:00:00"
+  "date_ordered" => "2019-09-12 08:00:00"
   })
 
 order2.save
@@ -215,17 +216,15 @@ order2.save
 order3 = Order.new({
   "product_id" => product3.id,
   "customer_id" => customer3.id,
-  # "invoice_id" => invoice3.id,
   "quantity" =>  1,
-  "date_ordered" => "2019-08-26 13:30:00"
+  "date_ordered" => "2019-09-16 13:30:00"
   })
 
 order3.save
 
 order4 = Order.new({
-  "product_id" => product2.id,
+  "product_id" => product4.id,
   "customer_id" => customer3.id,
-  # "invoice_id" => invoice4.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 13:10:00"
   })
@@ -233,14 +232,58 @@ order4 = Order.new({
 order4.save
 
 order5 = Order.new({
-  "product_id" => product2.id,
+  "product_id" => product5.id,
   "customer_id" => customer1.id,
-  # "invoice_id" => invoice3.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 13:00:00"
   })
 
 order5.save
+
+order6 = Order.new({
+  "product_id" => product6.id,
+  "customer_id" => customer4.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-28 13:00:00"
+  })
+
+order6.save
+
+order7 = Order.new({
+  "product_id" => product2.id,
+  "customer_id" => customer5.id,
+  "quantity" =>  2,
+  "date_ordered" => "2019-09-18 15:00:00"
+  })
+
+order7.save
+
+order8 = Order.new({
+  "product_id" => product3.id,
+  "customer_id" => customer6.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-15 12:25:00"
+  })
+
+order8.save
+
+order9 = Order.new({
+  "product_id" => product2.id,
+  "customer_id" => customer3.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-24 13:00:00"
+  })
+
+order9.save
+
+order10 = Order.new({
+  "product_id" => product1.id,
+  "customer_id" => customer4.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-24 13:00:00"
+  })
+
+order10.save
 
 Supplier.all
 supplier2.find
@@ -254,23 +297,28 @@ customer2.update
 
 
 Order.all
-
 Product.all
+Customer.all
 
 # invoice3.find
 # invoice3.update
 # invoice3.pay
 
-invoice1.invoice_total = 30
-Invoice.update(invoice1)
-invoice1.update(250)
-customer3.orders
+# invoice1.invoice_total = 30
+# Invoice.update(invoice1)
+# invoice1.update(250)
+# customer3.orders
+#
+# customer3.invoices
+# customer3.invoice?
+#
+# customer1.check_out(order1, shop1)
+# customer2.check_out(order2, shop1)
+#
+# invoice2.pay(shop1)
+# invoice1.pay(shop1)
 
-customer3.invoices
-customer3.invoice?
 
-customer1.check_out(order1, shop1)
-customer2.check_out(order2, shop1)
 
 # binding.pry
 # order1.check_out

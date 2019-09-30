@@ -7,7 +7,7 @@ class Shop
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @shop_name = details['shop_name']
-    @turnover = details['turnover'].to_i
+    @turnover = 0
   end
 
   def save
@@ -28,10 +28,7 @@ class Shop
     sql = "UPDATE shops
     SET shop_name = $1, turnover = $2
     WHERE id = $3"
-    new_total = @turnover += 
     SqlRunner.run( sql, values )
-
-
   end
 
 end

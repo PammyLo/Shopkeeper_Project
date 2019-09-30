@@ -76,14 +76,14 @@ class Order
     SqlRunner.run( sql, values )
   end
 
-  def find_invoice_total #find current total of invoice to add order to
-    sql = 'SELECT invoice_total FROM invoices, orders
-    WHERE invoices.id = orders.invoice_id
-    AND invoices.id = $1'
-    values = [ @invoice_id ]
-    found_total = SqlRunner.run( sql, values ).first
-    return found_total['invoice_total'].to_i
-  end
+  # def find_invoice_total #find current total of invoice to add order to
+  #   sql = 'SELECT invoice_total FROM invoices, orders
+  #   WHERE invoices.id = orders.invoice_id
+  #   AND invoices.id = $1'
+  #   values = [ @invoice_id ]
+  #   found_total = SqlRunner.run( sql, values ).first
+  #   return found_total['invoice_total'].to_i
+  # end
 
 
 

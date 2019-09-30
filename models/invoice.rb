@@ -75,15 +75,23 @@ class Invoice
   #   SqlRunner.run( sql, values)
   # end
 
-  def pay
-      sql = "UPDATE invoices
-      SET shop_id = $1, status = $2, invoice_total = $3
-      WHERE id = $4"
-      new_status = "1"
-      values = [ @shop_id, new_status, @invoice_total, @id ]
-      SqlRunner.run( sql, values )
-    end
+  def update_status
+    sql = "UPDATE invoices
+    SET shop_id = $1, status = $2, invoice_total = $3
+    WHERE id = $4"
+    new_status = "1"
+    values = [ @shop_id, new_status, @invoice_total, @id ]
+    SqlRunner.run( sql, values )
   end
+
+  def pay(shop)
+    self.update_status
+    amount = @invoice_total
+    shop.turnover += amount
+    shop.save
+  end
+
+end
 
   # def pay
   #   if self.status == "0"

@@ -79,7 +79,7 @@ class Customer
     amount = order.value
     if self.invoice?
       invoice = self.invoices
-      new_amount = invoice.invoice_total + amount
+      new_amount = invoice.invoice_total += amount
       invoice.update(new_amount)
     else
       invoice = Invoice.new({"shop_id" => shop.id})
