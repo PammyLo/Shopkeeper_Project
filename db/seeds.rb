@@ -224,7 +224,7 @@ order3.save
 
 order4 = Order.new({
   "product_id" => product4.id,
-  "customer_id" => customer3.id,
+  "customer_id" => customer4.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 13:10:00"
   })
@@ -233,7 +233,7 @@ order4.save
 
 order5 = Order.new({
   "product_id" => product5.id,
-  "customer_id" => customer1.id,
+  "customer_id" => customer5.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 13:00:00"
   })
@@ -242,7 +242,7 @@ order5.save
 
 order6 = Order.new({
   "product_id" => product6.id,
-  "customer_id" => customer4.id,
+  "customer_id" => customer6.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-28 13:00:00"
   })
@@ -251,7 +251,7 @@ order6.save
 
 order7 = Order.new({
   "product_id" => product2.id,
-  "customer_id" => customer5.id,
+  "customer_id" => customer1.id,
   "quantity" =>  2,
   "date_ordered" => "2019-09-18 15:00:00"
   })
@@ -260,7 +260,7 @@ order7.save
 
 order8 = Order.new({
   "product_id" => product3.id,
-  "customer_id" => customer6.id,
+  "customer_id" => customer5.id,
   "quantity" =>  1,
   "date_ordered" => "2019-09-15 12:25:00"
   })
@@ -300,10 +300,23 @@ Order.all
 Product.all
 Customer.all
 
-order1.find_customer
-order1.check_out(shop1)
-binding.pry
+customer1.check_out(order1, shop1)
+customer2.check_out(order2, shop1)
+customer3.check_out(order3, shop1)
+customer4.check_out(order4, shop1)
+customer5.check_out(order5, shop1)
+customer6.check_out(order6, shop1)
+customer1.pay(shop1)
+# binding.pry
+# order3.check_out(shop1)
+# order4.check_out(shop1)
+# order5.check_out(shop1)
 
+# customer1.unpaid_invoices
+# customer6.unpaid_invoices
+
+
+# customer2.pay(shop1)
 
 
 # invoice3.find

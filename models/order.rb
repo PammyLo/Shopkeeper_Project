@@ -78,38 +78,36 @@ class Order
 
   def update_status
     sql = "UPDATE orders
-    SET product_id = $1, quantity = $2, status = $3, customer_id = $4, invoice_id = $5, date_ordered= $6
-    WHERE id = $7"
-    new_status = "1"
-    values = [ @product_id, @quantity, new_status, @customer_id, @invoice_id, @date_ordered, @id ]
+    SET product_id = $1, quantity = $2, status = true, customer_id = $3, invoice_id = $4, date_ordered= $5
+    WHERE id = $6"
+
+    values = [ @product_id, @quantity, @customer_id, @invoice_id, @date_ordered, @id ]
     SqlRunner.run( sql, values )
   end
 
-  def update_invoice_id
+  def update_invoice_id(invoice)
     sql = "UPDATE orders
-    SET product_id = $1, quantity = $2, status = $3, customer_id = $4, invoice_id = $5, date_ordered= $6
-    WHERE id = $7"
-    new_invoice =
-    values = [ @product_id, @quantity, @status, @customer_id, new_invoice, @date_ordered, @id ]
+    SET invoice_id = $1
+    WHERE id = $2"
+    values = [ invoice, @id ]
     SqlRunner.run( sql, values )
   end
 
-  def check_out(shop)
-    self.update_status
-    amount = self.value
-    customer = self.find_customer
-    if customer.invoice?
-      invoice = customer.invoices
-      new_amount = invoice.invoice_total += amount
-      invoice.update(new_amount)
-    else
-      invoice = Invoice.new({"shop_id" => shop.id})
-      invoice.invoice_total = amount
-      invoice.save
-      @invoice_id = invoice.id
-      self.save
-    end
-  end
+  # def check_out(shop)
+  #   self.update_status
+  #   amount = self.value
+  #   customer = self.find_customer
+  #   if customer.unpaid_invoices != nil
+  #     invoice = customer.unpaid_invoices
+  #     new_amount = invoice.invoice_total += amount
+  #     invoice.update(new_amount)
+  #   else
+  #     invoice = Invoice.new({"shop_id" => shop.id})
+  #     invoice.invoice_total = amount
+  #     invoice.update
+  #     self.update_invoice_id(invoice.id)
+  #   end
+  # end
 
   # def find_invoice_total #find current total of invoice to add order to
   #   sql = 'SELECT invoice_total FROM invoices, orders

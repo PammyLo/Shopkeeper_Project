@@ -74,19 +74,43 @@ class Customer
    return true if self.invoices.count > 0
   end
 
-  # def check_out(order, shop)
-  #   order.update_status
-  #   amount = order.value
-  #   if self.invoice?
-  #     invoice = self.invoices
-  #     new_amount = invoice.invoice_total += amount
-  #     invoice.update(new_amount)
-  #   else
-  #     invoice = Invoice.new({"shop_id" => shop.id})
-  #     invoice.invoice_total = amount
-  #     invoice.save
-  #   end
-  # end
+  def unpaid_invoices
+    sql = "SELECT invoices.* FROM invoices, orders, customers
+    WHERE orders.customer_id = customers.id
+    AND orders.invoice_id = invoices.id
+    AND customers.id = $1
+    AND invoices.status = FALSE"
+    values = [ @id ]
+    invoices = SqlRunner.run( sql, values )
+    return nil if invoices.count == 0
+    return Invoice.new(invoices.first)
+  end
 
+  def check_out(order, shop)
+    order.update_status
+    amount = order.value
+    if self.unpaid_invoices != nil
+      invoice = self.unpaid_invoices
+      new_amount = invoice.invoice_total += amount
+      invoice.invoice_total = new_amount
+      invoice.update
+    else
+      invoice = Invoice.new({"shop_id" => shop.id})
+      invoice.invoice_total = amount
+      invoice.save
+      order.update_invoice_id(invoice.id)
+    end
+  end
+
+  def pay(shop)
+    if self.unpaid_invoices != nil
+      invoice = self.unpaid_invoices
+      amount = invoice.invoice_total
+      shop.turnover += amount.to_i
+
+      shop.update_turnover
+      invoice.update_status
+    end
+  end
 
 end

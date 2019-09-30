@@ -2,7 +2,7 @@ require('../db/sql_runner')
 
 class Shop
 
-  attr_accessor :id, :name, :turnover
+  attr_accessor :id, :shop_name, :turnover
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
@@ -24,10 +24,11 @@ class Shop
     SqlRunner.run( sql )
   end
 
-  def update
+  def update_turnover
     sql = "UPDATE shops
-    SET shop_name = $1, turnover = $2
-    WHERE id = $3"
+    SET turnover = $1
+    WHERE id = $2"
+    values = [ @turnover, @id ]
     SqlRunner.run( sql, values )
   end
 

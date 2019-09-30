@@ -10,7 +10,7 @@ class Invoice
     @id = details['id'].to_i if details['id']
     @shop_id = details['shop_id'].to_i
     @status = 0
-    @invoice_total = 0
+    @invoice_total = details['invoice_total'] if details['invoice_total'] || 0
   end
 
   def save
@@ -57,13 +57,21 @@ class Invoice
     SqlRunner.run( sql, values)
   end
 
-  def update(amount)
+  def update
     sql = "UPDATE invoices
     SET shop_id = $1, status = $2, invoice_total = $3
     WHERE id = $4"
-    values = [ @shop_id, @status, amount, @id ]
+    values = [ @shop_id, @status, @invoice_total, @id ]
     SqlRunner.run( sql, values)
   end
+
+  # def update(amount)
+  #   sql = "UPDATE invoices
+  #   SET shop_id = $1, status = $2, invoice_total = $3
+  #   WHERE id = $4"
+  #   values = [ @shop_id, @status, amount, @id ]
+  #   SqlRunner.run( sql, values)
+  # end
 
 
 
@@ -84,12 +92,6 @@ class Invoice
     SqlRunner.run( sql, values )
   end
 
-  def pay(shop)
-    self.update_status
-    amount = @invoice_total
-    shop.turnover += amount
-    shop.save
-  end
 
 end
 
