@@ -63,5 +63,10 @@ class Product
     SqlRunner.run( sql, values )
   end
 
+  def supplier_id
+    supplier = Supplier.find(@supplier_id)
+    return supplier
+  end
+
 
 end

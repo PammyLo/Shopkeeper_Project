@@ -15,13 +15,13 @@ get '/products/new' do
   erb(:"products/new")
 end
 
-get '/products/:id' do
-  @product = Product.find(params['id'])
-  @supplier = Supplier.find(product.supplier_id)
-  erb(:"products/show")
-end
-
 post '/products' do
   Product.new(params).save
   redirect '/products'
+end
+
+get '/products/:id' do
+  @product = Product.find(params['id'])
+  # @supplier = Supplier.find(@product.supplier_id)
+  erb(:"products/show")
 end
