@@ -21,12 +21,11 @@ post '/suppliers' do
   redirect to ("/suppliers")
 end
 
-# get '/suppliers/:id' do
-#   @product = Product.find(params['id'].to_i)
-#   @supplier = Product.supplier(@product.id)
-#   erb( :"suppliers/show" )
-# end
-#
+get '/suppliers/:id' do
+  @supplier = Supplier.find(params['id'].to_i)
+  erb( :"suppliers/show" )
+end
+
 # get '/suppliers/:id/edit' do
 #   @product = Product.find(params[:id])
 #   @supplier = Supplier.all

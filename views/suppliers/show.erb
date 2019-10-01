@@ -1,0 +1,15 @@
+<div class="show">
+  Name: <%= @supplier.supplier_name %><br>
+  Contact: <%= @supplier.contact_name %><br>
+  Location: <%= @supplier.location %><br>
+</div>
+
+<div>
+  <a href="/suppliers/<%= @supplier.id %>/edit">Edit</a>
+</div>
+
+<div>
+  <form class="" action="/suppliers/<%= @supplier.id %>/delete" method="POST">
+    <input class="" type="submit" value="Delete" />
+  </form>
+</div>
