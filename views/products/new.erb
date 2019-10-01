@@ -1,11 +1,11 @@
 <h1>Add New Product</h1>
 
 <form action="/products" method="post">
-  
-<div>
+
+<!-- <div> -->
 
     <div>
-      <label for="supplier">Select Supplier: </label>
+      <label for="supplier">Select Supplier: </label><br>
       <select name="supplier_id" id="supplier"><% @suppliers.each do |supplier| %>
         <option value=<%= supplier.id %>> <%= supplier.supplier_name %> </option>
       <% end %>
@@ -13,48 +13,50 @@
     </div>
 
     <div>
-      <label for="product_name">Name: </label>
+      <label for="product_name">Product name: </label><br>
       <input id="product_name" type="text" name="product_name" />
     </div>
 
     <div>
-      <label for="description">Description: </label>
+      <label for="description">Description: </label><br>
       <input id="description" type="text" name="description" />
     </div>
 
     <div>
-      <label for="stock">Stock: </label>
-      <input id="stock" type="integer" name="stock" />
+      <label for="category">Category: </label><br>
+      <input id="category" type="integer" name="category" />
     </div>
 
+
     <div>
-      <label for="cost_price">Cost Price: </label>
+      <label for="cost_price">Cost Price: </label><br>
       <input id="cost_price" type="integer" name="cost_price" />
     </div>
 
     <div>
-      <label for="selling_price">Selling Price: </label>
+      <label for="selling_price">Selling Price: </label><br>
       <input id="selling_price" type="integer" name="selling_price" />
     </div>
 
     <div>
-      <label for="low_stock_threshold">Low Stock Threshold: </label>
+      <label for="stock">Stock: </label><br>
+      <input id="stock" type="integer" name="stock" />
+    </div>
+
+    <div>
+      <label for="low_stock_threshold">Low Stock Threshold: </label><br>
       <input id="low_stock_threshold" type="integer" name="low_stock_threshold" />
     </div>
 
     <div>
-      <label for="delivery_time">Delivery Time: </label>
+      <label for="delivery_time">Delivery Time: </label><br>
       <input id="delivery_time" type="integer" name="delivery_time" />
     </div>
 
-    <div>
-      <label for="category">Category: </label>
-      <input id="category" type="integer" name="category" />
-    </div>
 
     <div>
       <input type="submit" value="add product" />
     </div>
 
-</div>
+<!-- </div> -->
 </form>

@@ -1,23 +1,59 @@
 <div class="show">
-  Name: <%= @product.product_name %><br>
-  Description: <%= @product.description %><br>
-  Category: <%= @product.category %><br>
-  Stock: <%= @product.stock %><br>
-  Selling price: <%= @product.selling_price %><br>
-  Cost price: <%= @product.cost_price %><br>
-  Low stock threshold: <%= @product.low_stock_threshold %><br>
-  Delivery time: <%= @product.delivery_time %><br>
-  Supplier: <%= @supplier.supplier_name %><br>
 
-</div>
+  <p><table>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <td></td>
+      <td><h2><%= @product.product_name %></h2></td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td><%= @product.description %></td>
+    </tr>
+    <tr>
+      <td>Category:</td>
+      <td><%= @product.category %></td>
+    </tr>
+    <tr>
+      <td>Stock:</td>
+      <td><%= @product.stock %></td>
+    </tr>
+    <tr>
+      <td>Selling price: </td>
+      <td><%= @product.selling_price %></td>
+    </tr>
+    <tr>
+      <td>Cost price:</td>
+      <td><%= @product.cost_price %></td>
+    </tr>
+    <tr>
+      <td>Low stock threshold: </td>
+      <td><%= @product.low_stock_threshold %></td>
+    </tr>
+    <tr>
+      <td>Delivery time:</td>
+      <td><%= @product.delivery_time %></td>
+    </tr>
+    <tr>
+      <td>Supplier:</td>
+      <td><%= @supplier.supplier_name %></td>
+    </tr>
+  </p>
 
-<div>
-  <a href="/products/<%= @product.id %>/edit">Edit</a>
-</div>
+  <div>
+    <form class="" action="/products/<%= @product.id %>" method="POST">
+      <input type="hidden" name="_method" value="put" />
+      <input type="submit" value="edit product details" />
+    </form>
+  </div>
 
-<div>
-  <form class="" action="/products/<%= @product.id %>/delete" method="POST">
-    <input class="" type="submit" value="Delete" />
-  </form>
+  <div>
+    <form class="" action="/products/<%= @product.id %>/delete" method="POST">
+      <input class="" type="submit" value="delete product" />
+    </form>
+  </div>
 
 </div>
