@@ -5,7 +5,7 @@ require_relative( '../models/product.rb' )
 require_relative( '../models/supplier.rb' )
 also_reload( '../models/*' )
 
-get '/products' do
+get '/products/index' do
   @products = Product.all
   erb( :"products/index" )
 end
@@ -21,7 +21,11 @@ post '/products' do
 end
 
 get '/products/:id' do
-  @product = Product.find(params['id'])
-  # @supplier = Supplier.find(@product.supplier_id)
+  @product = Product.find(params['id'].to_i)
+  @supplier = Product.supplier(@product.id)['supplier_name']
   erb(:"products/show")
+end
+
+get '/products/edit' do
+  erb( :"products/edit")
 end

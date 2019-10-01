@@ -300,6 +300,9 @@ Order.all
 Product.all
 Customer.all
 
+Product.supplier(227)
+binding.pry
+
 customer1.check_out(order1, shop1)
 customer2.check_out(order2, shop1)
 customer3.check_out(order3, shop1)

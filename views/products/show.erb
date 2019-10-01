@@ -1,12 +1,16 @@
 <div class="show">
   Name: <%= @product.product_name %><br>
   Description: <%= @product.description %><br>
+  Category: <%= @product.category %><br>
   Stock: <%= @product.stock %><br>
   Selling price: <%= @product.selling_price %><br>
   Cost price: <%= @product.cost_price %><br>
   Low stock threshold: <%= @product.low_stock_threshold %><br>
   Delivery time: <%= @product.delivery_time %><br>
-  
+  Supplier: <%= @supplier %><br>
+
+  <a href="/products/edit">Edit </a>
+
 
 
 </div>

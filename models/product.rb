@@ -3,7 +3,7 @@ require('./db/sql_runner')
 class Product
 
   attr_reader :id
-  attr_accessor :product_name, :description, :stock, :cost_price, :selling_price, :low_stock_threshold, :delivery_time, :category
+  attr_accessor :product_name, :supplier_id, :description, :stock, :cost_price, :selling_price, :low_stock_threshold, :delivery_time, :category
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
@@ -39,12 +39,12 @@ class Product
     return results.map { |hash| Product.new( hash ) }
   end
 
-  def self.find( id )
+  def self.find(id)
     sql = "SELECT * FROM products
     WHERE id = $1"
     values = [ id ]
-    results = SqlRunner.run( sql, values )
-    return Product.new( results.first )
+    product = SqlRunner.run( sql, values ).first
+    return Product.new( product )
   end
 
   def total
@@ -63,9 +63,12 @@ class Product
     SqlRunner.run( sql, values )
   end
 
-  def supplier_id
-    supplier = Supplier.find(@supplier_id)
-    return supplier
+  def self.supplier(id)
+    sql = "SELECT suppliers.* FROM suppliers, products
+    WHERE suppliers.id = products.supplier_id
+    AND products.id = $1"
+    values = [ id ]
+    return SqlRunner.run( sql, values ).first
   end
 
 
