@@ -1,9 +1,9 @@
-require_relative('../models/supplier')
-require_relative('../models/product')
-require_relative('../models/customer')
-require_relative('../models/order')
-require_relative('../models/invoice')
-require_relative('../models/shop')
+require_relative('./models/supplier')
+require_relative('./models/product')
+require_relative('./models/customer')
+require_relative('./models/order')
+require_relative('./models/invoice')
+require_relative('./models/shop')
 require("pry")
 
 
@@ -300,7 +300,7 @@ Order.all
 Product.all
 Customer.all
 
-Product.supplier(227)
+Product.delete(260)
 binding.pry
 
 customer1.check_out(order1, shop1)

@@ -9,8 +9,15 @@
   Delivery time: <%= @product.delivery_time %><br>
   Supplier: <%= @supplier %><br>
 
-  <a href="/products/edit">Edit </a>
+
+    <a href="/products/<%= @product.id %>/edit">Edit</a>
 
 
+
+  <br>
+
+  <form class="" action="/products/<%= @product.id %>/delete" method="POST">
+    <input class="" type="submit" value="delete" />
+  </form>
 
 </div>

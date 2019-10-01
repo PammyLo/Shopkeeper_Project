@@ -33,6 +33,13 @@ class Product
     SqlRunner.run( sql )
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM products
+    WHERE id = $1"
+    values = [ id ]
+    SqlRunner.run( sql, values )
+  end
+
   def self.all
     sql = "SELECT * FROM products"
     results = SqlRunner.run( sql )
@@ -68,7 +75,8 @@ class Product
     WHERE suppliers.id = products.supplier_id
     AND products.id = $1"
     values = [ id ]
-    return SqlRunner.run( sql, values ).first
+    supplier = SqlRunner.run( sql, values ).first
+    return Supplier.new(supplier)
   end
 
 
