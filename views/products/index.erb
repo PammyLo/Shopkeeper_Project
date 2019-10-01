@@ -26,15 +26,15 @@
   <tr>
     <td><a href="/products/<%= product.id %>"><%= product.product_name %></a></td>
     <td></td>
-    <td><%= product.category %></td>
+    <td class="text-column"><%= product.category %></td>
     <td></td>
-    <td><%= product.selling_price %></td>
+    <td>£ <%= product.selling_price %></td>
     <td></td>
     <td>%</td>
     <td></td>
     <td><%= product.stock %></td>
     <td></td>
-    <td><%= product.delivery_time %></td>
+    <td><%= product.delivery_time %> days</td>
     <td></td>
     <% @supplier.each do |supplier| %>
       <% if supplier.id == product.supplier_id %>
@@ -43,6 +43,9 @@
         <td> <a href="/suppliers/<%= supplier.id %>">place order</a></td>
       <% end %>
     <% end %>
+    <td>|</td>
+    <td> <a href="/products/<%= product.id %>/edit">edit item</a></td>
+
   </tr>
 
   <% end %>

@@ -1,9 +1,10 @@
 <h1>Add New Product</h1>
 
-<form class="" action="/products" method="post">
-<div class="form-wrapper">
+<form action="/products" method="post">
+  
+<div>
 
-    <div class="form-el">
+    <div>
       <label for="supplier">Select Supplier: </label>
       <select name="supplier_id" id="supplier"><% @suppliers.each do |supplier| %>
         <option value=<%= supplier.id %>> <%= supplier.supplier_name %> </option>
@@ -11,47 +12,47 @@
       </select>
     </div>
 
-    <div class="form-el">
+    <div>
       <label for="product_name">Name: </label>
       <input id="product_name" type="text" name="product_name" />
     </div>
 
-    <div class="form-el">
+    <div>
       <label for="description">Description: </label>
       <input id="description" type="text" name="description" />
     </div>
 
-    <div class="form-el">
+    <div>
       <label for="stock">Stock: </label>
       <input id="stock" type="integer" name="stock" />
     </div>
 
-    <div class="form-el">
+    <div>
       <label for="cost_price">Cost Price: </label>
       <input id="cost_price" type="integer" name="cost_price" />
     </div>
 
-    <div class="form-el">
+    <div>
       <label for="selling_price">Selling Price: </label>
       <input id="selling_price" type="integer" name="selling_price" />
     </div>
 
-    <div class="form-el">
+    <div>
       <label for="low_stock_threshold">Low Stock Threshold: </label>
       <input id="low_stock_threshold" type="integer" name="low_stock_threshold" />
     </div>
 
-    <div class="form-el">
+    <div>
       <label for="delivery_time">Delivery Time: </label>
       <input id="delivery_time" type="integer" name="delivery_time" />
     </div>
 
-    <div class="form-el">
+    <div>
       <label for="category">Category: </label>
       <input id="category" type="integer" name="category" />
     </div>
 
-    <div class="form-el">
+    <div>
       <input type="submit" value="add product" />
     </div>
 
