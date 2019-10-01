@@ -1,0 +1,29 @@
+<h1>CUSTOMERS</h1>
+
+<a href="/customers/new">add customer</a>
+
+<p><table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address 1</th>
+    <th>Address 2</th>
+    <th>Town/city</th>
+    <th>Postcode</th>
+    <th>Action</th>
+  </tr>
+
+  <% for customers in @customers %>
+    <tr>
+      <td><a href="/customers/<%= customers.id %>"><%= customers.first_name %></a></td>
+      <td><a href="/customers/<%= customers.id %>"><%= customers.last_name %></a></td>
+      <td><a href="/customers/<%= customers.id %>"><%= customers.address_1 %></a></td>
+      <td><a href="/customers/<%= customers.id %>"><%= customers.address_2 %></a></td>
+      <td><a href="/customers/<%= customers.id %>"><%= customers.town_city %></a></td>
+      <td><a href="/customers/<%= customers.id %>"><%= customers.postcode %></a></td>
+      <td><a href="/customers/<%= customers.id %>/edit">Edit</a></td>
+    </tr>
+  <% end %>
+
+</table>
+</p>
