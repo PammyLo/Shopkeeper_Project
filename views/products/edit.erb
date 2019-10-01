@@ -1,4 +1,4 @@
-<form action="/products/<%= @product.id %>/edit" method="post">
+<form action="/products/<%= @product.id %>" method="post">
   <input type="hidden" name="_method" value="put">
 
 <div class="form-wrapper">
@@ -17,42 +17,42 @@
 
     <div class="form-el">
       <label for="product_name">Name: </label>
-      <input id="product_name" type="text" name="product_name" value="@product.product_name" />
+      <input id="product_name" type="text" name="product_name" value="<%= @product.product_name %>" />
     </div>
 
     <div class="form-el">
       <label for="description">Description: </label>
-      <input id="description" type="text" name="description" value="@product.description"/>
+      <input id="description" type="text" name="description" value="<%= @product.description %>"/>
     </div>
 
     <div class="form-el">
       <label for="stock">Stock: </label>
-      <input id="stock" type="integer" name="stock" value="@product.stock"/>
+      <input id="stock" type="integer" name="stock" value="<%= @product.stock %>"/>
     </div>
 
     <div class="form-el">
       <label for="cost_price">Cost Price: </label>
-      <input id="cost_price" type="integer" name="cost_price" value="@product.cost_price"/>
+      <input id="cost_price" type="integer" name="cost_price" value="<%= @product.cost_price %>"/>
     </div>
 
     <div class="form-el">
       <label for="selling_price">Selling Price: </label>
-      <input id="selling_price" type="integer" name="selling_price" value="@product.selling_price" />
+      <input id="selling_price" type="integer" name="selling_price" value="<%= @product.selling_price %>" />
     </div>
 
     <div class="form-el">
       <label for="low_stock_threshold">Low Stock Threshold: </label>
-      <input id="low_stock_threshold" type="integer" name="low_stock_threshold" value="@product.low_stock_threshold"/>
+      <input id="low_stock_threshold" type="integer" name="low_stock_threshold" value="<%= @product.low_stock_threshold %>"/>
     </div>
 
     <div class="form-el">
       <label for="delivery_time">Delivery Time: </label>
-      <input id="delivery_time" type="integer" name="delivery_time" value="@product.delivery_time"/>
+      <input id="delivery_time" type="integer" name="delivery_time" value="<%= @product.delivery_time %>"/>
     </div>
 
     <div class="form-el">
       <label for="category">Category: </label>
-      <input id="category" type="integer" name="category" value="@product.category"/>
+      <input id="category" type="integer" name="category" value="<%= @product.category %>"/>
     </div>
 
     <div class="form-el">

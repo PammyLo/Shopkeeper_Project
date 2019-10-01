@@ -7,17 +7,17 @@
   Cost price: <%= @product.cost_price %><br>
   Low stock threshold: <%= @product.low_stock_threshold %><br>
   Delivery time: <%= @product.delivery_time %><br>
-  Supplier: <%= @supplier %><br>
+  Supplier: <%= @supplier.supplier_name %><br>
 
+</div>
 
-    <a href="/products/<%= @product.id %>/edit">Edit</a>
+<div>
+  <a href="/products/<%= @product.id %>/edit">Edit</a>
+</div>
 
-
-
-  <br>
-
+<div>
   <form class="" action="/products/<%= @product.id %>/delete" method="POST">
-    <input class="" type="submit" value="delete" />
+    <input class="" type="submit" value="Delete" />
   </form>
 
 </div>

@@ -22,14 +22,19 @@ end
 
 get '/products/:id' do
   @product = Product.find(params['id'].to_i)
-  @supplier = Product.supplier(@product.id)['supplier_name']
+  @supplier = Product.supplier(@product.id)
   erb( :"products/show" )
 end
 
 get '/products/:id/edit' do
-  @product = Product.find(params['id'].to_i)
-  @supplier = Product.supplier(@product.id)
+  @product = Product.find(params[:id])
+  @supplier = Supplier.all
   erb( :"products/edit")
+end
+
+put '/products/:id' do
+  Product.new(params).update
+  redirect to ("/products")
 end
 
 post '/products/:id/delete' do
