@@ -1,0 +1,23 @@
+<h1>SUPPLIERS</h1>
+
+<a href="/suppliers/new">add supplier</a>
+
+<p><table>
+  <tr>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>Location</th>
+    <th>Action</th>
+  </tr>
+
+  <% for supplier in @suppliers %>
+    <tr>
+      <td><a href="/suppliers/<%= supplier.id %>"><%= supplier.supplier_name %></a></td>
+      <td><a href="/suppliers/<%= supplier.id %>"><%= supplier.contact_name %></a></td>
+      <td><a href="/suppliers/<%= supplier.id %>"><%= supplier.location %></a></td>
+      <td><a href="/suppliers/<%= supplier.id %>/edit">Edit</a></td>
+    </tr>
+  <% end %>
+
+</table>
+</p>

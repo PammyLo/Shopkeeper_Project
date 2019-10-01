@@ -9,34 +9,36 @@ get '/suppliers' do
   erb( :"suppliers/index" )
 end
 
-# get '/products/new' do
-#   @suppliers = Supplier.all
-#   erb( :"products/new" )
-# end
-#
-# post '/products' do
-#   Product.new(params).save
-#   redirect to ("/products")
-# end
-#
-# get '/products/:id' do
+# new
+get '/suppliers/new' do
+  @suppliers = Supplier.all
+  erb( :"suppliers/new" )
+end
+
+# save in database
+post '/suppliers' do
+  Supplier.new(params).save
+  redirect to ("/suppliers")
+end
+
+# get '/suppliers/:id' do
 #   @product = Product.find(params['id'].to_i)
 #   @supplier = Product.supplier(@product.id)
-#   erb( :"products/show" )
+#   erb( :"suppliers/show" )
 # end
 #
-# get '/products/:id/edit' do
+# get '/suppliers/:id/edit' do
 #   @product = Product.find(params[:id])
 #   @supplier = Supplier.all
-#   erb( :"products/edit")
+#   erb( :"suppliers/edit")
 # end
 #
-# put '/products/:id' do
+# put '/suppliers/:id' do
 #   Product.new(params).update
-#   redirect to ("/products")
+#   redirect to ("/suppliers")
 # end
 #
-# post '/products/:id/delete' do
+# post '/suppliers/:id/delete' do
 #   Product.delete(params[:id])
-#   redirect to ("/products")
+#   redirect to ("/suppliers")
 # end
