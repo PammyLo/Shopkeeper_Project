@@ -31,16 +31,24 @@ class Customer
   end
 
   def self.delete(id)
-    sql = "DELETE * FROM customers
+    sql = "DELETE FROM customers
     WHERE id = $1"
     values = [ id ]
-    SqlRunner.run( sql )
+    SqlRunner.run( sql, values )
   end
 
   def self.all
     sql = "SELECT * FROM customers"
     results = SqlRunner.run( sql )
     return results.map { |hash| Customer.new( hash ) }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM customers
+    WHERE id = $1"
+    values = [ id ]
+    results = SqlRunner.run( sql, values )
+    return Customer.new( results.first )
   end
 
   def find

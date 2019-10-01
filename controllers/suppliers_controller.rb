@@ -11,7 +11,6 @@ end
 
 # new
 get '/suppliers/new' do
-  @suppliers = Supplier.all
   erb( :"suppliers/new" )
 end
 

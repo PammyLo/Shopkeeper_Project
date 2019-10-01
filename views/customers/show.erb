@@ -1,0 +1,17 @@
+<div class="show">
+  Name: <%= @customer.first_name %> <%= @customer.last_name %><br>
+  Adress 1: <%= @customer.address_1 %><br>
+  Adress 2: <%= @customer.address_2 %><br>
+  Town/city: <%= @customer.town_city %><br>
+  Postcode: <%= @customer.postcode %><br>
+</div>
+
+<div>
+  <a href="/customers/<%= @customer.id %>/edit">edit </a>
+</div>
+
+<div>
+  <form class="" action="/customers/<%= @customer.id %>/delete" method="post">
+    <input type="submit" value="delete">
+  </form>
+</div>
