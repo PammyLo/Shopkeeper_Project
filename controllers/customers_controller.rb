@@ -4,7 +4,6 @@ require( 'pry' )
 require_relative( '../models/customer.rb' )
 also_reload( '../models/*' )
 
-
 get '/customers' do
   @customers = Customer.all
   erb( :"customers/index" )
@@ -44,9 +43,3 @@ post '/customers/:id/delete' do
   Customer.delete(params['id'].to_i)
   redirect to ("/customers")
 end
-
-# # delete from database
-# post '/customers/:id/delete' do
-#   Supplier.delete(params[:id])
-#   redirect to ("/customers")
-# end

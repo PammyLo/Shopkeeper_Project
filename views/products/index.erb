@@ -8,13 +8,15 @@
     <th></th>
     <th>Category</th>
     <th></th>
-    <th>Stock</th>
-    <th></th>
     <th>Selling Price</th>
     <th></th>
-    <th>Cost Price</th>
-    <th></th>
     <th>Markup</th>
+    <th></th>
+    <th>Stock</th>
+    <th></th>
+    <th>Delivery Time</th>
+    <th></th>
+    <th>Supplier</th>
     <th></th>
     <th>Action</th>
   </tr>
@@ -23,20 +25,29 @@
 
   <tr>
     <td><a href="/products/<%= product.id %>"><%= product.product_name %></a></td>
-    <td>|</td>
+    <td></td>
     <td><%= product.category %></td>
-    <td>|</td>
-    <td><%= product.stock %></td>
-    <td>|</td>
+    <td></td>
     <td><%= product.selling_price %></td>
-    <td>|</td>
-    <td><%= product.cost_price %></td>
-
+    <td></td>
+    <td>%</td>
+    <td></td>
+    <td><%= product.stock %></td>
+    <td></td>
+    <td><%= product.delivery_time %></td>
+    <td></td>
+    <% @supplier.each do |supplier| %>
+      <% if supplier.id == product.supplier_id %>
+        <td><%= supplier.supplier_name %> </td>
+        <td></td>
+        <td> <a href="/suppliers/<%= supplier.id %>">place order</a></td>
+      <% end %>
     <% end %>
-
-    <td>|</td>
-    <td>Action</td>
   </tr>
+
+  <% end %>
+
+
 
 
 

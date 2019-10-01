@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title>Shopkeeper</title>
+    <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+    <link rel="stylesheet" type="text/css" href="/styles/tables.css">
   </head>
+
   <body>
 
-    <nav>
+    <nav class="sidenav">
     <ul>
       <li>
-        <a href="/products">Inventory</a>
-      </li>
-      <li>
-        <a href="/suppliers">Suppliers</a>
+        <a href="/">Dashboard</a>
       </li>
       <li>
         <a href="/orders">Orders</a>
@@ -20,12 +21,22 @@
       <li>
         <a href="/customers">Customers</a>
       </li>
+      <li>
+        <a href="/products">Inventory</a>
+      </li>
+      <li>
+        <a href="/suppliers">Suppliers</a>
+      </li>
     </ul>
   </nav>
 
-  <section>
+  <section class="content">
   <%= yield %>
   </section>
+
+  <!-- <footer class="footer">
+    Copyright © 2019 ShopKeeper
+  </footer> -->
 
   </body>
 </html>
