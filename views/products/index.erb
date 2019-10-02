@@ -4,6 +4,20 @@
   <a href="/products/new">add product</a>
 </div>
 
+<form action="/products" method="get">
+  <div class="sorter">
+    <label for="order_select">Order by:</label>
+    <select name="order_by" id="order_select">
+      <option value="stock">low stock</option>
+      <option value="category">category</option>
+      <option value="supplier_id">supplier</option>
+      <!-- <option value="4">mark-up</option> -->
+    </select>
+    <button id="small-button" type="submit">apply</button>
+  </div>
+</form>
+
+
 <p><table>
   <tr>
     <th>Name</th>
@@ -11,7 +25,6 @@
     <th>Category</th>
     <th></th>
     <th>Selling Price</th>
-    <th></th>
     <th>Markup</th>
     <th></th>
     <th>Stock</th>
@@ -31,20 +44,19 @@
     <td><%= product.category %></td>
     <td></td>
     <td>£ <%= product.selling_price %></td>
-    <td></td>
     <td>%</td>
     <td></td>
-    <td><%= product.stock %></td>
+    <% if product.low_stock? == true %>
+      <td class="low-stock"><%= product.stock %></td>
+    <% else %>
+      <td class="stock"><%= product.stock %></td>
+    <% end %>
     <td></td>
     <td><%= product.delivery_time %> days</td>
     <td></td>
-    <% @supplier.each do |supplier| %>
-      <% if supplier.id == product.supplier_id %>
-        <td><%= supplier.supplier_name %> </td>
-        <td></td>
-        <td> <a href="/suppliers/<%= supplier.id %>">place order</a></td>
-      <% end %>
-    <% end %>
+    <td><%= product.supplier.supplier_name %> </td>
+    <td></td>
+    <td> <a href="/suppliers/<%= product.supplier.id %>">place order</a></td>
     <td>|</td>
     <td> <a href="/products/<%= product.id %>/edit">edit item</a></td>
 

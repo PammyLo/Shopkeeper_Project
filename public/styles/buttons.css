@@ -34,3 +34,14 @@ input[type=submit]:hover {
   /* background-color: #23B5D3; */
   display: block;
 }
+
+#small-button {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    width: 7%;
+    border-radius: 5px;
+    background-color: #77C4C4;
+    padding: 8px;
+    cursor: pointer;
+  }

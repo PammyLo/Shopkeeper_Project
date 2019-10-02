@@ -46,3 +46,19 @@ h2 {
 .show {
   background-color: #f2f2f2;
 }
+
+.low-stock {
+  color: white;
+	text-align: right;
+	display: inline-block;
+	width: 24px;
+	background-color: red;
+	border-radius: 5px;
+}
+
+.stock {
+	display: inline-block;
+	width: 24px;
+	text-align: right;
+	border-radius: 5px;
+}

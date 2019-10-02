@@ -1,4 +1,5 @@
 require('./db/sql_runner')
+require('pry')
 
 class Product
 
@@ -46,6 +47,12 @@ class Product
     return results.map { |hash| Product.new( hash ) }
   end
 
+  def self.order_by(order_by)
+    sql = "SELECT * FROM products ORDER BY #{order_by} ASC"
+    results = SqlRunner.run( sql )
+    return results.map { |p| Product.new( p ) }
+  end
+
   def self.find(id)
     sql = "SELECT * FROM products
     WHERE id = $1"
@@ -70,22 +77,25 @@ class Product
     SqlRunner.run( sql, values )
   end
 
-  # def update(details)
-  #   sql = "UPDATE products
-  #   SET supplier_id = $1, product_name = $2, description = $3, stock = $4, cost_price = $5, selling_price = $6, low_stock_threshold = $7, delivery_time = $8, category = $9
-  #   WHERE id = $10"
-  #   values = [ supplier_id, product_name, description, stock, cost_price, selling_price, low_stock_threshold, delivery_time, category , id ]
-  #   SqlRunner.run( sql, values )
-  # end
-
-
-  def self.supplier(id)
+  def supplier
     sql = "SELECT suppliers.* FROM suppliers, products
     WHERE suppliers.id = products.supplier_id
     AND products.id = $1"
-    values = [ id ]
+    values = [ @id ]
     supplier = SqlRunner.run( sql, values ).first
     return Supplier.new(supplier)
+  end
+
+  def low_stock?
+    sql = "SELECT * FROM products
+    WHERE id = $1"
+    values = [ @id ]
+    product = SqlRunner.run( sql, values ).first
+    if product['stock'].to_i <= product['low_stock_threshold'].to_i
+      return true
+    else
+      return false
+    end
   end
 
 

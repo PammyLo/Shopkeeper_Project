@@ -49,7 +49,7 @@ product1 = Product.new({
   "supplier_id" => supplier3.id,
   "product_name" => "Silver 'Lace' Brooch Pendant",
   "description" => "Unique silver pendant brooch with 'Lace' textured centre piece framed by a soft, satinised backing. Approx. 8.7 cm x 2.6cm wide.This stunning versatile, statement piece can be worn as a necklace or a broach. There is a double pin on the back and a loop for adding a chain.",
-  "stock" =>  3,
+  "stock" =>  1,
   "selling_price" => 195,
   "cost_price" => 156,
   "low_stock_threshold" => 1,
@@ -300,9 +300,6 @@ Order.all
 Product.all
 Customer.all
 
-Product.delete(260)
-binding.pry
-
 customer1.check_out(order1, shop1)
 customer2.check_out(order2, shop1)
 customer3.check_out(order3, shop1)
@@ -313,7 +310,10 @@ customer1.pay(shop1)
 customer2.pay(shop1)
 customer3.pay(shop1)
 customer4.pay(shop1)
-p customer2.orders
+customer2.orders
+
+p product1.low_stock?
+# binding.pry
 
 
 # binding.pry

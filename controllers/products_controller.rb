@@ -6,8 +6,12 @@ require_relative( '../models/supplier.rb' )
 also_reload( '../models/*' )
 
 get '/products' do
-  @products = Product.all
-  @supplier = Supplier.all
+  if params['order_by'] != nil
+    @products = Product.order_by(params['order_by'])
+  else
+    @products = Product.all
+  end
+  # @supplier = Supplier.all
   erb( :"products/index" )
 end
 
