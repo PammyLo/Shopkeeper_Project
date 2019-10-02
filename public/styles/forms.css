@@ -15,7 +15,7 @@ select, option {
 }
 
 input[type=text], select {
-  font-size: 14px;
+  font-size: 16px;
   width: 50%;
   margin: 0;
   padding: 12px;
@@ -24,7 +24,7 @@ input[type=text], select {
 }
 
 input[type=textarea], select {
-  font-size: 14px;
+  font-size: 16px;
   width: 50%;
   max-height: auto;
   overflow: hidden;
@@ -34,7 +34,7 @@ input[type=textarea], select {
 }
 
 input[type=integer], select {
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   width: 20%;
   padding: 14px;

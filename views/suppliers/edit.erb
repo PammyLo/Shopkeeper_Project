@@ -1,26 +1,32 @@
 <form action="/suppliers/<%= @supplier.id %>" method="post">
   <input type="hidden" name="_method" value="put">
 
-<div class="form-wrapper">
+<div>
 
-    <div class="form-el">
-      <label for="supplier_name">Name: </label>
+    <div>
+      <label for="supplier_name">Name: </label><br>
       <input id="supplier_name" type="text" name="supplier_name" value="<%= @supplier.supplier_name %>" />
-    </div>
+    </div><br>
 
-    <div class="form-el">
-      <label for="contact_name">Contact: </label>
+    <div>
+      <label for="contact_name">Contact: </label><br>
       <input id="contact_name" type="text" name="contact_name" value="<%= @supplier.contact_name %>"/>
-    </div>
+    </div><br>
 
-    <div class="form-el">
-      <label for="location">Location: </label>
-      <input id="location" type="integer" name="location" value="<%= @supplier.location %>"/>
-    </div>
+    <div>
+      <label for="location">Location: </label><br>
+      <input id="location" type="text" name="location" value="<%= @supplier.location %>"/>
+    </div><br>
 
-    <div class="form-el">
+    <div>
       <input type="submit" value="Edit Supplier Details" />
     </div>
 
 </div>
 </form>
+
+<div>
+  <form class="" action="/suppliers/<%= @supplier.id %>/delete" method="POST">
+    <input class="" type="submit" value="delete" />
+  </form>
+</div>
