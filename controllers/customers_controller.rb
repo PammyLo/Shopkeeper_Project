@@ -32,6 +32,7 @@ get '/customers/:id/edit' do
   erb( :"customers/edit")
 end
 
+
 # update edit in database
 put '/customers/:id' do
   Customer.new(params).update
@@ -40,6 +41,6 @@ end
 
 # delete from database
 post '/customers/:id/delete' do
-  Customer.delete(params['id'].to_i)
+  Customer.delete(params[:id])
   redirect to ("/customers")
 end

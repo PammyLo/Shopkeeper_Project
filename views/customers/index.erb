@@ -17,13 +17,16 @@
 
   <% for customers in @customers %>
     <tr>
-      <td><a href="/customers/<%= customers.id %>"><%= customers.first_name %></a></td>
-      <td><a href="/customers/<%= customers.id %>"><%= customers.last_name %></a></td>
-      <td><a href="/customers/<%= customers.id %>"><%= customers.address_1 %></a></td>
-      <td><a href="/customers/<%= customers.id %>"><%= customers.address_2 %></a></td>
-      <td><a href="/customers/<%= customers.id %>"><%= customers.town_city %></a></td>
-      <td><a href="/customers/<%= customers.id %>"><%= customers.postcode %></a></td>
-      <td><a href="/customers/<%= customers.id %>/edit">Edit</a></td>
+      <td><%= customers.first_name %></td>
+      <td><%= customers.last_name %></td>
+      <td><%= customers.address_1 %></td>
+      <td><%= customers.address_2 %></td>
+      <td><%= customers.town_city %></td>
+      <td><%= customers.postcode %></td>
+      <td><a href="/customers/<%= customers.id %>/edit">edit</a> |
+        <a href="/customers/<%= customers.id %>/edit">delete</a>
+      </td>
+
     </tr>
   <% end %>
 

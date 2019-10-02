@@ -1,6 +1,8 @@
 <h1>SUPPLIERS</h1>
 
-<a href="/suppliers/new">add supplier</a>
+<div class="button">
+  <a href="/suppliers/new">add supplier</a>
+</div>
 
 <p><table>
   <tr>
@@ -12,10 +14,11 @@
 
   <% for supplier in @suppliers %>
     <tr>
-      <td><a href="/suppliers/<%= supplier.id %>"><%= supplier.supplier_name %></a></td>
-      <td><a href="/suppliers/<%= supplier.id %>"><%= supplier.contact_name %></a></td>
-      <td><a href="/suppliers/<%= supplier.id %>"><%= supplier.location %></a></td>
-      <td><a href="/suppliers/<%= supplier.id %>/edit">Edit</a></td>
+      <td><%= supplier.supplier_name %></td>
+      <td><%= supplier.contact_name %></td>
+      <td><%= supplier.location %></td>
+      <td><a href="/suppliers/<%= supplier.id %>/edit">Edit</a> |
+      <a href="/suppliers/<%= supplier.id %>/edit">Delete</a></td>
     </tr>
   <% end %>
 

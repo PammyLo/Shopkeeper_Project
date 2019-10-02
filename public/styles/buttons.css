@@ -6,6 +6,7 @@ input[type=submit] {
   font-size: 24px;
   padding: 14px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 input[type=submit]:hover {
@@ -30,6 +31,6 @@ input[type=submit]:hover {
 }
 
 .button :hover {
-  background-color: #23B5D3;
+  /* background-color: #23B5D3; */
   display: block;
 }
