@@ -1,6 +1,6 @@
 <div class="show">
 
-  <p><table>
+  <div><table>
     <tr>
       <th></th>
       <th></th>
@@ -41,13 +41,10 @@
       <td>Supplier:</td>
       <td><%= @supplier.supplier_name %></td>
     </tr>
-  </p>
+  </div>
 
-  <div>
-    <form class="" action="/products/<%= @product.id %>" method="POST">
-      <input type="hidden" name="_method" value="put" />
-      <input type="submit" value="edit product details" />
-    </form>
+  <div class="button">
+    <a href="/products/<%= @product.id %>/edit">edit product</a>
   </div>
 
   <div>

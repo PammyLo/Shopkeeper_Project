@@ -1,10 +1,36 @@
-input[type=text], select {
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+select, option {
   width: 50%;
   padding: 12px;
   padding-top: 20px;
   margin: 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
+}
+
+input[type=text], select {
+  width: 50%;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+input[type=text], input {
+  font-size: 24;
+  text-align: left;
+}
+
+input[type=textarea], select {
+  width: 50%;
+  max-height: auto;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid #ccc;
 }
 
 input[type=integer], select {
@@ -14,25 +40,4 @@ input[type=integer], select {
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-
-input[type=submit] {
-  width: 50%;
-  background-color: #77C4C4;
-  color: white;
-  font-size: auto;
-  padding: 14px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #23B5D3;
-}
-
-form {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
 }

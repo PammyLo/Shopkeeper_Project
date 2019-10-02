@@ -70,13 +70,13 @@ class Product
     SqlRunner.run( sql, values )
   end
 
-  def update (details)
-    sql = "UPDATE products
-    SET supplier_id = $1, product_name = $2, description = $3, stock = $4, cost_price = $5, selling_price = $6, low_stock_threshold = $7, delivery_time = $8, category = $9
-    WHERE id = $10"
-    values = [ supplier_id, product_name, description, stock, cost_price, selling_price, low_stock_threshold, delivery_time, category , id ]
-    SqlRunner.run( sql, values )
-  end
+  # def update(details)
+  #   sql = "UPDATE products
+  #   SET supplier_id = $1, product_name = $2, description = $3, stock = $4, cost_price = $5, selling_price = $6, low_stock_threshold = $7, delivery_time = $8, category = $9
+  #   WHERE id = $10"
+  #   values = [ supplier_id, product_name, description, stock, cost_price, selling_price, low_stock_threshold, delivery_time, category , id ]
+  #   SqlRunner.run( sql, values )
+  # end
 
 
   def self.supplier(id)

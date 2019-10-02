@@ -2,8 +2,6 @@
 
 <form action="/products" method="post">
 
-<!-- <div> -->
-
     <div>
       <label for="supplier">Select Supplier: </label><br>
       <select name="supplier_id" id="supplier"><% @suppliers.each do |supplier| %>
@@ -19,7 +17,7 @@
 
     <div>
       <label for="description">Description: </label><br>
-      <input id="description" type="text" name="description" />
+      <input id="description" type="<textarea name="description"></textarea> />
     </div>
 
     <div>
@@ -58,5 +56,5 @@
       <input type="submit" value="add product" />
     </div>
 
-<!-- </div> -->
+
 </form>
