@@ -27,7 +27,7 @@ end
 
 get '/products/:id' do
   @product = Product.find(params['id'].to_i)
-  @supplier = Product.supplier(@product.id)
+  # @supplier = Product.supplier(@product.id)
   erb( :"products/show" )
 end
 

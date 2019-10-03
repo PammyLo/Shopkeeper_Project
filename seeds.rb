@@ -129,6 +129,174 @@ product6 = Product.new({
 
 product6.save
 
+product1 = Product.new({
+  "supplier_id" => supplier3.id,
+  "product_name" => "Silver 'Lace' Brooch Pendant",
+  "description" => "Unique silver pendant brooch with 'Lace' textured centre piece framed by a soft, satinised backing. Approx. 8.7 cm x 2.6cm wide.This stunning versatile, statement piece can be worn as a necklace or a broach. There is a double pin on the back and a loop for adding a chain.",
+  "stock" =>  1,
+  "selling_price" => 195,
+  "cost_price" => 156,
+  "low_stock_threshold" => 1,
+  "delivery_time" => 14,
+  "category" => "Jewellery"
+  })
+
+product1.save
+
+product2 = Product.new({
+  "supplier_id" => supplier3.id,
+  "product_name" => "Silver 'Lace' Bangle",
+  "description" => "Unique silver bangle with 'Lace' texture. The bangle is3cm at widest point and varies in thickness from 2.5 - 3cm due to the organic nature of this piece. A T-Bar catch on links secures and complements this bangle.",
+  "stock" =>  2,
+  "selling_price" => 395,
+  "cost_price" => 316,
+  "low_stock_threshold" => 1,
+  "delivery_time" => 14,
+  "category" => "Jewellery"
+  })
+
+product2.save
+
+product3 = Product.new({
+  "supplier_id" => supplier2.id,
+  "product_name" => "Aurora Glass Candle",
+  "description" => "Lavender & Ylang-ylang. Calming and revitalising, Aurora plays with the gentle floral fragrances of soothing lavender and ylang-ylang. 20cl boxed single wick glass candle. Burn time - approx. 30hrs. Height - 80mm. Diameter - 69mm.",
+  "stock" =>  20,
+  "selling_price" => 13,
+  "cost_price" => 10,
+  "low_stock_threshold" => 5,
+  "delivery_time" => 5,
+  "category" => "Candles"
+  })
+
+product3.save
+
+product4 = Product.new({
+  "supplier_id" => supplier2.id,
+  "product_name" => "Seilebost Tin Candle",
+  "description" => "Black Pomegranate. A sophisticated, deep and sensual scent with top notes of pomegranate, plum and rose. 20cl single wick tin candle. Height - 65mm. Diameter - 75mm. Burn time - approx. 30hrs.",
+  "stock" =>  12,
+  "selling_price" => 13,
+  "cost_price" => 10,
+  "low_stock_threshold" => 5,
+  "delivery_time" => 5,
+  "category" => "Candles"
+  })
+
+product4.save
+
+product5 = Product.new({
+  "supplier_id" => supplier1.id,
+  "product_name" => "Classic Design Scarf",
+  "description" => "2-ply 5-colour scarf classic design motifs vary allover. Thick and chunky, it's ideal for someone wanting a bolder look. Approximate size cms: 157 x 25.",
+  "stock" =>  5,
+  "selling_price" => 210,
+  "cost_price" => 168,
+  "low_stock_threshold" => 1,
+  "delivery_time" => 10,
+  "category" => "Knitwear"
+  })
+
+product5.save
+
+product6 = Product.new({
+  "supplier_id" => supplier1.id,
+  "product_name" => "Reversible Wristwarmers",
+  "description" => "Classic on the outside, contemporary on the inside and vice versa (except for the seams of course). 5 colours. Approximate size (unstretched) cms: 18.5 x 19.",
+  "stock" =>  3,
+  "selling_price" => 160,
+  "cost_price" => 128,
+  "low_stock_threshold" => 1,
+  "delivery_time" => 10,
+  "category" => "Knitwear"
+  })
+
+product6.save
+
+product7 = Product.new({
+  "supplier_id" => supplier3.id,
+  "product_name" => "Gold 'Lace' Brooch Pendant",
+  "description" => "Unique gold pendant brooch with 'Lace' textured centre piece framed by a soft, satinised backing. Approx. 8.7 cm x 2.6cm wide.This stunning versatile, statement piece can be worn as a necklace or a broach. There is a double pin on the back and a loop for adding a chain.",
+  "stock" =>  4,
+  "selling_price" => 1295,
+  "cost_price" => 1000,
+  "low_stock_threshold" => 2,
+  "delivery_time" => 14,
+  "category" => "Jewellery"
+  })
+
+product7.save
+
+product8 = Product.new({
+  "supplier_id" => supplier3.id,
+  "product_name" => "Gold 'Lace' Bangle",
+  "description" => "Unique gold bangle with 'Lace' texture. The bangle is3cm at widest point and varies in thickness from 2.5 - 3cm due to the organic nature of this piece. A T-Bar catch on links secures and complements this bangle.",
+  "stock" =>  1,
+  "selling_price" => 1495,
+  "cost_price" => 1200,
+  "low_stock_threshold" => 2,
+  "delivery_time" => 14,
+  "category" => "Jewellery"
+  })
+
+product8.save
+
+product9 = Product.new({
+  "supplier_id" => supplier2.id,
+  "product_name" => "Dawn Glass Candle",
+  "description" => "Lavender & Ylang-ylang. Calming and revitalising, Aurora plays with the gentle floral fragrances of soothing lavender and ylang-ylang. 20cl boxed single wick glass candle. Burn time - approx. 30hrs. Height - 80mm. Diameter - 69mm.",
+  "stock" =>  28,
+  "selling_price" => 13,
+  "cost_price" => 10,
+  "low_stock_threshold" => 5,
+  "delivery_time" => 5,
+  "category" => "Candles"
+  })
+
+product9.save
+
+product10 = Product.new({
+  "supplier_id" => supplier2.id,
+  "product_name" => "Seilebost Body Lotion",
+  "description" => "Black Pomegranate Hand & Body Lotion. Introducing our best selling Seilebost fragrance in a luxurious hand & body lotion. With a fruity fragrant blend of pomegranate, plum and rose, indulge your skin with this nourishing cream, leaving it smooth and scented.",
+  "stock" =>  28,
+  "selling_price" => 12,
+  "cost_price" => 9,
+  "low_stock_threshold" => 5,
+  "delivery_time" => 5,
+  "category" => "Bath & Body"
+  })
+
+product10.save
+
+product11 = Product.new({
+  "supplier_id" => supplier1.id,
+  "product_name" => "Heritage Design Scarf",
+  "description" => "2-ply 5-colour scarf classic design motifs vary allover. Thick and chunky, it's ideal for someone wanting a bolder look. Approximate size cms: 157 x 25.",
+  "stock" =>  7,
+  "selling_price" => 210,
+  "cost_price" => 168,
+  "low_stock_threshold" => 3,
+  "delivery_time" => 10,
+  "category" => "Knitwear"
+  })
+
+product11.save
+
+product12 = Product.new({
+  "supplier_id" => supplier1.id,
+  "product_name" => "Cloche hat",
+  "description" => "These hats are also fully lined for extra warmth. They are long, designed to come right down to your eyebrows and below the tips of your ears. ",
+  "stock" =>  3,
+  "selling_price" => 110,
+  "cost_price" => 85,
+  "low_stock_threshold" => 2,
+  "delivery_time" => 10,
+  "category" => "Knitwear"
+  })
+
+product12.save
+
 customer1 = Customer.new({
   "first_name" => "Jo",
   "last_name" => "Blog",
@@ -285,6 +453,96 @@ order10 = Order.new({
 
 order10.save
 
+order11 = Order.new({
+  "product_id" => product11.id,
+  "customer_id" => customer1.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-13 16:00:00"
+  })
+
+order11.save
+
+order12 = Order.new({
+  "product_id" => product12.id,
+  "customer_id" => customer2.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-12 08:00:00"
+  })
+
+order12.save
+
+order13 = Order.new({
+  "product_id" => product12.id,
+  "customer_id" => customer3.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-16 13:30:00"
+  })
+
+order13.save
+
+order14 = Order.new({
+  "product_id" => product8.id,
+  "customer_id" => customer4.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-28 13:10:00"
+  })
+
+order14.save
+
+order15 = Order.new({
+  "product_id" => product3.id,
+  "customer_id" => customer5.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-28 13:00:00"
+  })
+
+order15.save
+
+order16 = Order.new({
+  "product_id" => product4.id,
+  "customer_id" => customer6.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-28 13:00:00"
+  })
+
+order16.save
+
+order17 = Order.new({
+  "product_id" => product10.id,
+  "customer_id" => customer1.id,
+  "quantity" =>  2,
+  "date_ordered" => "2019-09-18 15:00:00"
+  })
+
+order17.save
+
+order18 = Order.new({
+  "product_id" => product9.id,
+  "customer_id" => customer5.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-15 12:25:00"
+  })
+
+order18.save
+
+order19 = Order.new({
+  "product_id" => product10.id,
+  "customer_id" => customer3.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-24 13:00:00"
+  })
+
+order19.save
+
+order20 = Order.new({
+  "product_id" => product7.id,
+  "customer_id" => customer4.id,
+  "quantity" =>  1,
+  "date_ordered" => "2019-09-24 13:00:00"
+  })
+
+order20.save
+
 Supplier.all
 supplier2.find
 supplier1.location = "Shetland"
@@ -310,9 +568,11 @@ customer1.pay(shop1)
 customer2.pay(shop1)
 customer3.pay(shop1)
 customer4.pay(shop1)
+customer5.pay(shop1)
 customer2.orders
 
-p product1.low_stock?
+product1.low_stock?
+# product1.markup
 # binding.pry
 
 

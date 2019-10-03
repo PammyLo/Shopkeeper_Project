@@ -8,11 +8,21 @@ td {
 
 th {
   color: #006BA6;
+  font-size: 18px;
   padding: 0px 20px 10px 0px;
-  border-bottom: 1px solid white;
+  /* border-bottom: 1px solid white; */
+}
+
+a {
+  color: #006BA6;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #23B5D3;
 }
 
 table {
   border-collapse: collapse;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }

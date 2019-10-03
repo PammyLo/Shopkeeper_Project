@@ -41,6 +41,7 @@ h2 {
   /* background-color: #F7F7FF; */
   margin-left: 200px;
   padding-left: 20px;
+	padding-top: 70px;
 }
 
 .show {
@@ -61,4 +62,9 @@ h2 {
 	width: 24px;
 	text-align: right;
 	border-radius: 5px;
+}
+
+.dtime {
+	display: flex;
+	justify-content: flex-end;
 }

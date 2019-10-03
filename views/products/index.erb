@@ -2,23 +2,21 @@
 
 <div class="button">
   <a href="/products/new">add product</a>
-</div>
+</div><br>
 
 <form action="/products" method="get">
-  <div class="sorter">
     <label for="order_select">Order by:</label>
     <select name="order_by" id="order_select">
-      <option value="stock">low stock</option>
+      <option value="stock">stock low-high</option>
       <option value="category">category</option>
       <option value="supplier_id">supplier</option>
       <!-- <option value="4">mark-up</option> -->
     </select>
     <button id="small-button" type="submit">apply</button>
-  </div>
-</form>
+</form><br>
 
 
-<p><table>
+<table>
   <tr>
     <th>Name</th>
     <th></th>
@@ -38,35 +36,29 @@
 
   <% for product in @products %>
 
-  <tr>
-    <td><a href="/products/<%= product.id %>"><%= product.product_name %></a></td>
-    <td></td>
-    <td><%= product.category %></td>
-    <td></td>
-    <td>£ <%= product.selling_price %></td>
-    <td>%</td>
-    <td></td>
-    <% if product.low_stock? == true %>
-      <td class="low-stock"><%= product.stock %></td>
-    <% else %>
-      <td class="stock"><%= product.stock %></td>
-    <% end %>
-    <td></td>
-    <td><%= product.delivery_time %> days</td>
-    <td></td>
-    <td><%= product.supplier.supplier_name %> </td>
-    <td></td>
-    <td> <a href="/suppliers/<%= product.supplier.id %>">place order</a></td>
-    <td>|</td>
-    <td> <a href="/products/<%= product.id %>/edit">edit item</a></td>
-
-  </tr>
+    <tr>
+      <td><a href="/products/<%= product.id %>"><%= product.product_name %></a></td>
+      <td></td>
+      <td><%= product.category %></td>
+      <td></td>
+      <td>£ <%= product.selling_price %></td>
+      <td>%</td>
+      <td></td>
+      <% if product.low_stock? == true %>
+        <td class="low-stock"><%= product.stock %></td>
+      <% else %>
+        <td class="stock"><%= product.stock %></td>
+      <% end %>
+      <td></td>
+      <td class="dtime"><%= product.delivery_time %> days</td>
+      <td></td>
+      <td><%= product.supplier.supplier_name %> </td>
+      <td></td>
+      <td> <a href="/suppliers/<%= product.supplier.id %>">place order</a></td>
+      <td>|</td>
+      <td> <a href="/products/<%= product.id %>/edit">edit item</a></td>
+    </tr>
 
   <% end %>
 
-
-
-
-
 </table>
-</p>

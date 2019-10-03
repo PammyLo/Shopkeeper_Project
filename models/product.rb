@@ -86,6 +86,16 @@ class Product
     return Supplier.new(supplier)
   end
 
+  def markup
+    sql = "SELECT * FROM products
+    WHERE id = $1"
+    values = [ @id ]
+    product = SqlRunner.run( sql, values ).first
+    profit = product.selling_price - product.cost_price
+    markup = profit / product.cost_price * 100
+    return markup
+  end
+
   def low_stock?
     sql = "SELECT * FROM products
     WHERE id = $1"
