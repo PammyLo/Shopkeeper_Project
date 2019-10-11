@@ -68,7 +68,7 @@ class Customer
   end
 
   def orders
-    sql = "SELECT orders.* FROM orders, customers
+    sql = "SELECT orders.id FROM orders, customers
     WHERE orders.customer_id = customers.id
     AND customers.id = $1"
     values = [ @id ]
@@ -122,7 +122,6 @@ class Customer
       invoice = self.unpaid_invoices
       amount = invoice.invoice_total
       shop.turnover += amount.to_i
-
       shop.update_turnover
       invoice.update_status
     end
